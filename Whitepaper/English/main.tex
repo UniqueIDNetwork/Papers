@@ -1,0 +1,175 @@
+\documentclass{article}
+\usepackage{url,setspace,amssymb,tikz,algorithmicx,algorithm}
+
+
+\title{proposal}
+\begin{document}
+\begin{titlepage}
+\begin{center}
+\begin{Huge}
+UniqueID
+\end{Huge}
+
+\vspace{45mm}
+
+\begin{huge}
+Decentralized identity system based on biometric data and trust networks
+\end{huge}
+
+
+\vspace{85mm}
+
+\textbf{ March 2018}
+\\
+\textbf{ uniqueid.network}
+\end{center}
+\end{titlepage}
+
+\newpage
+
+\begin{abstract}
+Salaam.
+\end{abstract}
+
+\section{Introduction}
+
+\subsection{Paper organization}
+
+
+
+\section{Preliminaries}
+\subsection{Bitcoin}
+\subsection{Smart Contracts}
+\subsection{Decentralized Systems}
+\subsection{ Cryptography}
+
+
+\section{ Problem Specification}
+
+\subsection{Problem Statement}
+
+\subsection{Terminology}
+\subsubsection{Human}
+\subsubsection{Decentralized}
+\subsubsection{Incentives}
+\subsubsection{Privacy}
+
+
+
+\section{ UniqueID Design}
+In this section we will explain how UniqueID works and solves decentralized proof-of-unique-human problem. Our system is based on some concepts and components that we will cover them in this chapter in detail. Before that we provide overal flow of the system.
+
+\subsection{Overal Flow}
+
+  Uniquid aims to provide a permanent and reliable identity for everyone without violating his privacy.  Users should submit their biometric data on blockchain and then prove that they have submitted valid data. This proofs are “social” and based on trust: It means you must get some “biometric reproducing certificate” from current accepted users or validators. these validator asks you to “reproduce” your claimed biometric and preventing fake biometrics attacks.
+  \\
+  There are some questions arising here, such as how users assigned to verifiers, what is the incentives of verifiers for checking others claims and Where is the starting point of the system. for addressing these questions and concepts, we discuss them in depth in following subsections.
+\subsection{Biometrics}
+Biometric data is how we identify and know "humans". We need permanent, unique and well-studied biometric for our system that storing them on blockchain do not create any privacy concerns. 
+
+TABLE
+
+
+\subsection{Trustless Setup}
+In a system where current users should approve new ones, we should have a mechanism for approving very first users. One method is to begin with suffiecient number of trusted persons and include their biometrics and keys as verified users. The challenge is how to select these persons without any need for central third party? Below we explain three solutions for this issue.
+
+\subsubsection*{Transparent Peer-to-Peer Setup} 
+Transparency can be the key for solving trustless setup. There are a community of enthusiastic people around the project that can build healthy setup. Providing relevant information in a public channel, the community invited for joining public party in special place and time. everyone who aims to join sending his proposal including name , biometrics and some identity document -just for transparency purposes. In the party they start to verify each other in a peer-to-peer manner. Because the party is public, everyone can join and there would no monopoly or closed individuals in starting. Also it's near impossible to fake an identity because it can detected and claimed by just one person in a party. There can be a live cast of all of the steps of party in public channel for forward transparency.
+
+\subsubsection*{Trusted Famous People}
+There are some people with public profile who have no incentive for sabotaging system, e.g. University Professors, known artists and athletes or popular cafes, usually because of their high reputation among other individuals. Collecting some of these people who wants to join in early verifying, and showing all the informations and profiles can be a starting point for system.
+
+\subsubsection*{ Decentralized CAPTCHA Party}
+CAPTCHAs {\ref{•}} are mechanisms for recognizing humans from machines. CAPTCHAs are AI-hard and it takes reasonable time for humans to solve them. Consider we construct some hard CAPTCHA that takes about 2 minutes for an average person to solve. We then organize a CAPTCHA party: in a specific time around the world, based on some common randomness(blockhash) a predefined smart contract starts assigning CAPTCHAs to everyone. 
+
+\subsection{Verification Mechanism}
+There are number of verifiers, say 100, in the city. Location and city of every verifier recorded in blockchain. We assume that user's public key is $pk$.
+\\
+
+ after one user enters the system with his biometric, he should get certificates from sufficient number of these verifiers(3 is enough here). Assigning verifiers to users done via blockchain with user's location and some common randomness. This randomness can produced with another smart contract, with methods like randHound \ref{} or ...   This randomness,$ R_i$ combined and hashed with user's public key ($SHA256(R_i || pk$) can determine the assignment. \\ 
+User then goes to verifier in person and \textbf{reproduce}  his biometric in presence of verifier. Reproducing means sampling biometric data with verifier's biometric device, and then ensuring equality of this sample with previous biometrics on blockchain with some local computation. If verifier ensure that two biometrics are same, he $accepts$ user and issue a certificate with his signature on blockchain. This is one of the most important components of UniqueID, because here verifier can make sure that the biometric is real and belongs to the person who claims it. This will prevent fake biometrics attacks and identity thefts from happening.
+\\
+After user gaining these certificates, the system automatically accepts him  as a valid and unique person. If only one of verifiers does not issue the certificate, user can ask for a reassignment. This is possible when one of the verifiers is corrupted or has made some error. at the end, if user verified ... (What is the mechanism for punishing this verifier??)
+\\
+For this procees being meaningful, and no one with many attempts can not break it and assigned to his favourable verifiers we add a barrier in entering the system. There are just three ways you can enter the system :
+\begin{itemize}
+\item Via $invitation$. Every verified user have two invitations that can give to other public keys and bring them access for submitting their biometric and verification proccess. because there is limited number of verified users, there will be always limited number of verifications (and performing an attack needs large human resources).
+
+\item Via $Stake$. User can put some specified amount of money on stake. If he verified by system, this stake returned to him, if not, he loose it. The amount of stake has direct relation with all unverified stakes in that city, more unverified stake, more stake a user should put.
+
+\item Via $Verifiers$. Every verifier -subject to his reputation and trust- can bring specified number  
+\end{itemize}
+RANDOMNESS TOKENS disributed , PoS, 
+
+\subsection{Trust Delegation}
+Trust is a fundumental key in bringing healthy behavior in our system. Every valid person has one "trust" token and can delegate it to every one. With this non-tradable token one can give his ability of verifying to someone else, because he can not actively verify new users. Thus the verifier with large number of trusts have more verifying power, leading to slightly more tokens he give for every new user.
+\\
+For more resilience to attacks, we can give verification power to those with more than $x$ trust tokens. this parameter can set based on city populations and maturity of system. This leads to collecting trust tokens by verifiers, but how they can do this? Transparency is the key, Imagine verifier who brings live cast of his place on a youtube chaوnnel, or providing access to his office for everyone (doors are open!). By providing more transparency, more people can trust you.
+\\
+Also every user must have incentives for : delegating her trust, and delegate it to a correct person. Restricting some important features of system (e.g. Universal Basic Income) to those who delegated their trust is one solution. Also for a corrupted verifier (there is some mechanism for finding corrupt behavior), all his trust get suspended for some period of time.
+
+
+
+
+\subsection{Native Token}
+What are use cases?
+
+\subsection{Decentralized Governance}
+
+
+
+
+\section{Challanges }
+
+
+
+\subsection{Geographical Dispersion}
+
+\subsection{Privacy}
+\subsubsection*{Trust Tokens}
+\subsubsection*{Biometric Data}
+\subsubsection*{Secure Logins}
+
+\subsection{Hard Forks}
+\subsection{Massive Computation and Storage}
+\subsection{Identity Theft or Death}
+\subsection{Centralization of Validation Mechanism}
+\subsection{Fairness}
+\subsection{Lack of Incentive}
+
+
+\section{Analysis}
+
+
+\section{Applications}
+
+\subsection{Novel mining system}
+\subsection{End-to-End Secure Voting}
+\subsection{Universal Basic Income}
+\subsection{Reputation Systems}
+\subsection{General Framework for Operations}
+\subsection{Social Media}
+\subsection{Fake News}
+
+\section{ Reviews}
+We categorize previously existing ideas in this area in two different categories, first decentralized identity management solutions which aim to provide a decentralized infrastructure to host centralized issued identities, including DID, Sovrin, and uPort. Second one is decentralized identity issuance solutions which aim to create or define a new kind of identity that is decentralized from its origin, including Democracy Earth and Bitnation, Proof-of-Personhood.\\
+Our work can be categorized in the later one, decentralized identity issuance systems. We want to emphasize that despite previously known solutions, UniqueID can bring decentralized, permanent, unique identity into reality by utilizing biometric authentication and social smart contracts. \\
+In the following section we briefly review some of the mentioned schemes and compare them to UniqueID in measures of political and operational decentralization, sybil attack resistance  permanence of issued identities, and proper governance and incentive mechanisms. 
+
+\subsection{uPort}
+
+uPort is a decentralized infrastructure for claiming identities and receiving verification from other parties in the network. One can use uPort to host and digitize her identity such as national ID card or driving license and get verified by officials or other people for being the owner of the claimed identity.\\
+ First of all, uPort is not designed for a decentralized originated identity which is well defined. Due to lack of a general identifier in uPort network, uPort do not provide a direct solution to anti-sybil attack and enabling a universal basic income system. Though uPort provide the possibility to define decentralized originated identities but there is no intrinsic incentive or mechanism to do it.
+
+\subsection{Sovrin}
+
+Sovrin is a protocol and decentralized app based on it’s own blockchain, aiming to create sovereign identity and decentralized trust, it is focused on delivering a kind of identity which is secure, private, and partially provable. In current design of Sovrin system, a trusted set of operations maintain issuing new identities in a semi-decentralized manner. By utilizing its own token, issuers are economically incentivize to participate in system, though there’s no governance mechanism to prevent issuing fake identities and sybil attacks. While Sovrin claim that it will become fully decentralized in future but currently there’s no clear scheme for decentralizing issuing new identities in Sovrin network. 
+
+\subsection{Democracy Earth}
+Democracy Earth is going to be a decentralized app mainly concerned with providing a infrastructure for liquid democracy and voting. Naturally it does need a unique identity scheme to prevent sybil attacks. Although currently it is proposed that each new user upload a video from herself in a concrete format to prove her uniqueness but there’s no clear scheme with acceptable error that compare videos and verifier uniqueness of new users. It is also suggested that Democracy Earth utilize other platforms to identify its users.
+\subsection{everid}
+\subsection{ DID}
+\subsection{ID2020}
+
+
+\end{document}
