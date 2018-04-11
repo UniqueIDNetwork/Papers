@@ -45,8 +45,13 @@ Salaam.
 
 
 \section{ Problem Specification}
+In this section we define our problem formally.
 
 \subsection{Problem Statement}
+The simplest formulation of our problems is : \\
+\textit{Create a decentralized system for assigning exactly one public key to every human, without violating users privacy. }
+\\
+This definition can create some debates. First, we must define words like user, human and decentralized, we see this in next section. 
 
 \subsection{Terminology}
 \subsubsection{Human}
@@ -122,17 +127,38 @@ We introduced a native token for our platform, However, For every  token system 
 \\
 \textbf{Nessecity:} First, we need a token for creating incentive mechanisms. every decentralized platform needs sophisticated and well-studied incentives, for encouraging healthy behavior and punishing bad actors. One of the powerful tools for designing mechanism is money, because it is related to person's desirability and profits. In our system verifiers rewarded by tokens every time they verify a new, fresh user. Also new users get some tokens for the first time they enter the system. Also some important applications, such as UBI, needs some form of currency.
 \\
-\textbf{Utility:} The most obvious usage of such a token is for payments and store of value. Incentives bring new users to the system, and new users bring more acceptability and wider market, projected in token price, bringing new incentives for further users. This positive network-effect, combined with mechanism for more incentivising first movers(but not make them big Whales!) can bring non-zero value for the token.(TODO : This is because of the nature of our system). Also this system can be the host for many other applications which need unique and permanent identity, such as digital banking, property and real estate on blockchain, reputatution systems etc. These systems can provide their services on UniquID blockchain, using native token or at least paying fee's for their smart contracts.
+\textbf{Utility:} The most obvious usage of such a token is for payments and store of value. Incentives bring new users to the system, and new users bring more acceptability and wider market, projected in token price, bringing new incentives for further users. This positive network-effect, combined with mechanism for more incentivising first movers(but not make them big Whales!) can bring non-zero value for the token.(TODO : This is because of the nature of our system). Also this system can  host  many other applications which need unique and permanent identity, such as digital banking, property and real estate on blockchain, reputatution systems etc. These systems can provide their services on UniquID blockchain, using native token or at least paying fee's for their smart contracts.
 \\
 \textbf{Monetary system:} Our goal is to achieve an issuance scheme which is fair and keeps value of the token. Our proposal is selling fix amount of tokens (say, $a*x$) in pre-sale (with an Initial Coin Offering  or similar methods) and then issuing $x$ tokens for every new user. This tokens distributed between verifiers of that user and herself. So after $a$ new users, tokens in the hands of users is equal to ICO tokens. This can provide $fairness$ for the system, because initial holders are not giants anymore, and after system became popular(=more users) their influence get reduced. Also initial investors have incentives for investment, because they can buy tokens cheap early. It will be promised to them that their tokens have an influence equal to $a$ users, and they can guess what they earn by estimating value of an identity system with $a$ users. This issuance scheme is linear in number of users, However the utility of users(network effect) is quadratic, so we can predict slight rise in price over time. At least, It's not an super-inflationary system : More user's, more utility, more demand and more supply responing them. Choosing $a$ parameter and schemes for incentivising early users (e.g. changning reward over time) is for further research.
 
 
-\\ Figure for comparing network effect and money supply\\
+\\ 
+Figure for comparing network effect and money supply.
 
 \subsection{Decentralized Governance}
+There is no idependent entity for decision-making in decentralized systems, so they face governance problems in many levels. Long discussions on Ethereum DAO fork and Bitcoin Segwit2x proposal are clear examples of this issue. In UniqueID, There is new concept that should be governed as well : human work. There should be some mechanism for detecting and punishing $corrupted$ verifiers.
+\\
+UniqueID is inherently one-person-one-vote, and this gives us new oppurtunities for shaping our governance model. We introduce some hierarchial representative democratic system, based on three layers of representatives. 
+\\
+First, small communities of $50-100$ persons choose one person from themselves. They put their trust and vote on him, and can also track his activity and ask him about that. Because they are small group of people, it is expected that they know each other well, and can make nessecary communications between themselves and choose qualified representative. these are layer-1 representatives, and they should know each other and follow system changes and discussions, and also choose layer-2 persons. Every $30-40$ of these layer-1 representatives should gather and choose one representative. And the same for layer-3 : every $20-30$ layer-2 people can choose one layer-3 representative from them. See figure X for visual ...
+\\
+This system should decide for critical decisions such as choosing parameters and consensus rules. Majority consensus seems a very good method for making decisions in a system with verified identities, but also can cause some problems. Not \textbf{every} decision can be made by a majority (51 percent) of votes. Changing some critical parameter of a system (number of verifiers needed for verifying one person) is a clear example of this. So we need to group desicions based on their importance, and put some thresholds on percentage of votes needed for making decisions in every group (super-majority rules).
+\\
+Because of low participation, lack of incentive for voting and lack of knowledge for making corret decisions we should give some authority to representatives. But for lowering corruption and collusion, in addition to transparency, every decision needs greater consensus among higher layers. for example, if we need 51 percent of all user votes for some parameter change, we need 68, 85, 95 percent  of votes for layer 1,2,3, respectively.
+\\
 
 
+
+
+\\ preventing ads and ... in votes
+
+\\ bribing is much harder, secure re-vote
 \subsection{Implementation}
+
+\subsection{Improvements over verification}
+The verification system we purpose face some challanges. Bribing or coordinating some verifiers for creating fake identities is the most important one. Fake-ID prevention is the only thing we design our system for solving that. \\
+We can see two directions for solving this attacks. First, Set some sophisticated and hard rules for entering people that guarantee hardness of attacks. Second, design some mechanisms for detecting and removing fake identities and punishing bad verifiers. In this section we explain a mechanism of second kind. \\
+We first design a very secure registeration way that there is zero-probablity in entering with fake identity, calling it A-judge. 
 
 
 \section{Challanges }
@@ -168,6 +194,7 @@ properly designed, I think this PoH can solve PoS problems with reputation and u
 \subsection{General Framework for Operations}
 \subsection{Social Media}
 \subsection{Fake News}
+\subsection{Rethinking Governance}
 
 \section{ Reviews}
 We categorize previously existing ideas in this area in two different categories, first decentralized identity management solutions which aim to provide a decentralized infrastructure to host centralized issued identities, including DID, Sovrin, and uPort. Second one is decentralized identity issuance solutions which aim to create or define a new kind of identity that is decentralized from its origin, including Democracy Earth and Bitnation, Proof-of-Personhood.\\
