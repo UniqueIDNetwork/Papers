@@ -174,6 +174,10 @@ We first design a very secure registeration way that there is zero-probablity in
 
 \subsection{Hard Forks}
 \subsection{Massive Computation and Storage}
+The current design of UniqueID requires permanent storage of all claimed biometrics and also a computational infrastructure for automatic uniqueness check of new claims comparing to previously verified ones. While It is theoretically possible to do all the storage and computation on the blockchain, say Ethereum, but practically in that case the cost of operation will become prohibitively large. \\
+In the early stages of development, UniqueID will utilize IPFS or other production-ready decentralized storage solutions to store biometric claims. TrueBit protocol offers a general purpose solution to make computation off-chain at the cost of negligible less decentralization. \\
+While TrueBit protocol can practically mitigate the problem of prohibitive computation costs, it is important to note that the special task of checking uniqueness of new biometric claims is capable of being done in parallel. One can think of a smart-contract that offer a reward for the one who finds the closest previously verified unique biometric to the new claim, the results can be verified using a TrueBit like protocol. This design prevents waste of computational resources to a significant level.\\
+To get most out of UniqueID network, it is reasonable to develop an independent blockchain and storage layer. It will enable the potential for Proof-of-unique-Human mining system which is explained in "Novel Mining System" section. 
 \subsection{Identity Theft or Death}
 \subsection{Centralization of Validation Mechanism}
 \subsection{Fairness}
