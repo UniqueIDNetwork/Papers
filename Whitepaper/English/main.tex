@@ -198,6 +198,9 @@ In the early stages of development, UniqueID will utilize IPFS or other producti
 While TrueBit protocol can practically mitigate the problem of prohibitive computation costs, it is important to note that the special task of checking uniqueness of new biometric claims is capable of being done in parallel. One can think of a smart-contract that offer a reward for the one who finds the closest previously verified unique biometric to the new claim, the results can be verified using a TrueBit like protocol. This design prevents waste of computational resources to a significant level.\\
 To get most out of UniqueID network, it is reasonable to develop an independent blockchain and storage layer. It will enable the potential for Proof-of-unique-Human mining system which is explained in "Novel Mining System" section. 
 \subsection{Identity Theft or Death}
+Identity needs to be secure against theft or getting lost, on the other hand, to enable some features like UBI, it is required to eliminate dead identities.\\
+As we suggested in "Problem Specification" section, there is a close relationship between the definition of human in our design and trust, based on that point of view we propose a solution for identity theft problem. Each user has to declare a group of at-least 5 trusted ones (friends, family or lawyer) as her trust circle, which have the authority to agree on identity theft or loss and owner of that account can reclaim his identity with new private-key by participating in the validation process.\\
+Based on how much the system can tolerate the dead identities, one can think of a extending process for identity holders, similar to new identity registration process with less redundancy.
 \subsection{Centralization of Validation Mechanism}
 \subsection{Fairness}
 \subsection{Lack of Incentive}
@@ -230,7 +233,7 @@ In an abstract and conceptual level, Bitcoin's idea is to decentralize a specifi
 \subsection{Fake News}
 \subsection{Rethinking Governance}
 
-\section{ Reviews}
+\section{Reviews}
 We categorize previously existing ideas in this area in two different categories, first decentralized identity management solutions which aim to provide a decentralized infrastructure to host centralized issued identities, including DID, Sovrin, and uPort. Second one is decentralized identity issuance solutions which aim to create or define a new kind of identity that is decentralized from its origin, including Democracy Earth and Bitnation, Proof-of-Personhood.\\
 Our work can be categorized in the later one, decentralized identity issuance systems. We want to emphasize that despite previously known solutions, UniqueID can bring decentralized, permanent, unique identity into reality by utilizing biometric authentication and social smart contracts. \\
 In the following section we briefly review some of the mentioned schemes and compare them to UniqueID in measures of political and operational decentralization, sybil attack resistance  permanence of issued identities, and proper governance and incentive mechanisms. 
