@@ -51,11 +51,31 @@ In this section we define our problem formally.
 The simplest formulation of our problems is : \\
 \textit{Create a decentralized system for assigning exactly one public key to every human, without violating users privacy. }
 \\
-This definition can create some debates. First, we must define words like user, human and decentralized, we see this in next section. 
+This definition can create some debates. First, we must define words like user, human and decentralized, as we see in next section. We can see this system as creating a list of valid public keys, without trusting any centralized authority. By "system", we mean some socio-economic design, where some group of people, incouraging by economic incentives, forming a specific structure toward achieving a goal. 
 
 \subsection{Terminology}
+
 \subsubsection{Human}
+When we want to design an identity system for "humans", we must tackle with two questions :
+\\
+1. What makes an entity a "human" ?
+\\
+2. What makes this human presistent over time? How we can say one person is "same" over time?
+\\
+The first question is crucial, to knowing "who" can enter the system. Can we name strong Artificial Intelligence a human? It seems that all of us have some consensus on a definition of a human. It's a combination of some specific body properties (shape, face ...) and intellectual abilities (memory, language ...). 
+\\
+Second question is harder, and a famous unsolved problem in philosophy. If we want to project the identity of a person to any of his properties, we loose something. for example, if we define a personal identity over time as person's body, It is known that all body cells are replaced after some time. But we just need some properties that are presistent over time for most persons (without any fundumental philosophical reason). We can name three of this properties: 
+\\
+\textbf{Biometrics:} Some specific human body structures proven to be presistent and unique over time. Fingerprints, DNA and iris scan are examples of these biometrics.
+\\
+\textbf{Memory:} Brain of normal person can memorize some data and recognize it over time. presistence of memory is almost true for all persons.
+\\
+\textbf{Trust:} This is less clear than previous properties. Trust is how other people know and recognize one person. Basically it is combined from some of mind-body properties, But here "judging" over these properties are up to others. Trust is how other people see someone presistent and unique over time. Human judgement can make some errors, But it works well in many situations.
+
+
 \subsubsection{Decentralized}
+
+Defining decentralization, specially in rigorous form is very hard.
 \subsubsection{Incentives}
 \subsubsection{Privacy}
 
@@ -129,10 +149,10 @@ We introduced a native token for our platform, However, For every  token system 
 \\
 \textbf{Utility:} The most obvious usage of such a token is for payments and store of value. Incentives bring new users to the system, and new users bring more acceptability and wider market, projected in token price, bringing new incentives for further users. This positive network-effect, combined with mechanism for more incentivising first movers(but not make them big Whales!) can bring non-zero value for the token.(TODO : This is because of the nature of our system). Also this system can  host  many other applications which need unique and permanent identity, such as digital banking, property and real estate on blockchain, reputatution systems etc. These systems can provide their services on UniquID blockchain, using native token or at least paying fee's for their smart contracts.
 \\
-\textbf{Monetary system:} Our goal is to achieve an issuance scheme which is fair and keeps value of the token. Our proposal is selling fix amount of tokens (say, $a*x$) in pre-sale (with an Initial Coin Offering  or similar methods) and then issuing $x$ tokens for every new user. This tokens distributed between verifiers of that user and herself. So after $a$ new users, tokens in the hands of users is equal to ICO tokens. This can provide $fairness$ for the system, because initial holders are not giants anymore, and after system became popular(=more users) their influence get reduced. Also initial investors have incentives for investment, because they can buy tokens cheap early. It will be promised to them that their tokens have an influence equal to $a$ users, and they can guess what they earn by estimating value of an identity system with $a$ users. This issuance scheme is linear in number of users, However the utility of users(network effect) is quadratic, so we can predict slight rise in price over time. At least, It's not an super-inflationary system : More user's, more utility, more demand and more supply responing them. Choosing $a$ parameter and schemes for incentivising early users (e.g. changning reward over time) is for further research.\\
+\textbf{Monetary system:} Our goal is to achieve an issuance scheme which is fair and keeps value of the token. Our proposal is selling fix amount of tokens (say, $a*x$) in pre-sale (with an Initial Coin Offering  or similar methods) and then issuing $x$ tokens for every new user. This tokens distributed between verifiers of that user and herself. So after $a$ new users, tokens in the hands of users is equal to ICO tokens. This can provide $fairness$ for the system, because initial holders are not giants anymore, and after system became popular(=more users) their influence get reduced. Also initial investors have incentives for investment, because they can buy tokens cheap early. It will be promised to them that their tokens have an influence equal to $a$ users, and they can guess what they earn by estimating value of an identity system with $a$ users. This issuance scheme is linear in number of users, However the utility of users(network effect) is quadratic, so we can predict slight rise in price over time. At least, It's not an super-inflationary system : More user's, more utility, more demand and more supply responing them. Choosing $a$ parameter and schemes for incentivising early users (e.g. changning reward over time) is for further research.
 
 
-
+\\ 
 Figure for comparing network effect and money supply.
 
 \subsection{Decentralized Governance}
@@ -146,13 +166,12 @@ This system should decide for critical decisions such as choosing parameters and
 \\
 Because of low participation, lack of incentive for voting and lack of knowledge for making corret decisions we should give some authority to representatives. But for lowering corruption and collusion, in addition to transparency, every decision needs greater consensus among higher layers. for example, if we need 51 percent of all user votes for some parameter change, we need 68, 85, 95 percent  of votes for layer 1,2,3, respectively.
 \\
+In this process, people can track their trustee activities and votes, and ask for explaination and reasons. Everyone can change his trustee everytime, and delegate his trust to another one. However, represetatives should not loose their position with leaving one of their trusts, so there can be a threshold(e.g. 20 percent) that when they leave, the person becomes invalid. 
 
 
+\\ preventing ads and ... in votes
 
-
-preventing ads and ... in votes\\ 
-
-bribing is much harder, secure re-vote
+\\ bribing is much harder, secure re-vote
 \subsection{Implementation}
 
 \subsection{Improvements over verification}
@@ -188,21 +207,10 @@ We first design a very secure registeration way that there is zero-probablity in
 \subsection{Novel mining system}
 properly designed, I think this PoH can solve PoS problems with reputation and unforgeable unique signatures...
 
-\subsection{Accountable Voting and Survey}
-Voting is a critical part of all democratic systems, also surveys play an important role in media and decision making processes, but there's no solution for running a public and accountable online voting without trusting any third-party to protect it against Sybil attacks or fake identities.\\
-Recent advancements in cryptography and blockchains technology offer many powerful solutions for end-to-end secure voting and auditable decentralized voting systems. UniqueID as a decentralized identity solution will make it possible to use all those advancements for social benefits without compromising people privacy.
-
+\subsection{End-to-End Secure Voting}
 \subsection{Universal Basic Income}
-Universal basic income (UBI) is a kind of welfare system that is based on giving everyone a guaranteed basic income, totally independent of any other income. The idea of national basic income dates back to 18th century but various technical and political issues such as lack of trusted computational infrastructure or a form of trusted universal identity prevented implementation of a UBI system. Though UBI idea originally was presented as a way to save the society from poverty and injustice, many AI experts claim that given the fast and tremendous success of AI technology the world is heading toward a mass unemployment and a UBI system is inevitable and certainly required.\\
-UniqueID provides a trustable universal identity and building a UBI system on top of it is just as easy as writing a simple smart-contract on Ethereum network or any other blockchain with access to UniqueID's validated identities. 
-
 \subsection{Reputation Systems}
-Reputation systems are tools to build trust in online communities. Many motivations including the emergence of sharing economy and online marketplaces encourage using a reputation system. Theoretical studies in game theory and practical experiments agree that a valid and reliable reputation system must have a long lifetime and be protected against Sybil attacks. \\
-Creating reputation systems on top of a decentralized identity system such as UniqueID will make Sybil attacks impossible or very expensive and on the other hand, can guarantee a long lifetime.
-
-\subsection{General Framework for Organization}
-In an abstract and conceptual level, Bitcoin's idea is to decentralize a specific computational process using redundancy of computation, Ethereum extended this idea and made it possible to decentralize any computational process.\\ UniqueID's idea is to decentralize operation of a specific organization which is responsible for providing universal unique identity, and we claim that by extending same governance scheme and redundancy of operation, one can think of a general framework to decentralize operation of organizations. 
-
+\subsection{General Framework for Operations}
 \subsection{Social Media}
 \subsection{Fake News}
 \subsection{Rethinking Governance}
