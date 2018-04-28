@@ -104,10 +104,8 @@ In this section we will explain how UniqueID works and solves decentralized proo
   \\
   There are some questions arising here, such as how users assigned to verifiers, what is the incentives of verifiers for checking others claims and Where is the starting point of the system. for addressing these questions and concepts, we discuss them in depth in following subsections.
 \subsection{Biometrics}
-Biometric data is how we identify and know "humans". We need permanent, unique and well-studied biometric for our system that storing them on blockchain do not create any privacy concerns. 
-
-TABLE
-
+Biometric data is how we identify and know "humans". We need almost permanent, unique and well-studied biometrics for our system that storing them on blockchain do not create any privacy concerns. 
+Biometric data will be used to check uniqeness of indivuals and prevent creation of fake identities and sybil attack. Wide renge of physical and behavioural biometric indicators have been developed during last decades in litrature of biometric-based identification, including iris, face, finger vein, hand geometry, typing, etc. Advancements in machine learning and image processing offer many well-studied and tested methods of biometric-based identification with equal error rate (EER) of at most $0.01$, let alone methods with much higher accuracy. Roughly speaking, compunding at least 4 of uncorrelated different biometrics as a biometric indicator, our system is ready to serve and identify 100 milion people.\\
 
 \subsection{Trustless Setup}
 In a system where current users should approve new ones, we should have a mechanism for approving very first users. One method is to begin with suffiecient number of trusted persons and include their biometrics and keys as verified users. The challenge is how to select these persons without any need for central third party? Below we explain three solutions for this issue.
