@@ -27,11 +27,18 @@ Decentralized identity system based on biometric data and trust networks
 
 \newpage
 
-\begin{abstract}
-Salaam.
-\end{abstract}
-
 \section{Introduction}
+Identity verification  has  always been an important problem in online systems. While identity is a key for solving wide range of challenges, including sybil attacks and accountable votings, there is no universal system  for holding human identities : Identity databases usually created and managed by governments or finincial instituions privately. Social medias and massengers solved the problem partially by relying on other system : E-mail, mobile phone number, credit card information, other reputable social media accounts etc. These methods are not suitable for highly critical applications(e.g. voting), and prone to violating users privacy. There is not any system for assigning every online human exactly one account, which can be used for logging into other systems as well.
+\\
+Centalized models for identity verification are all prone to misuses, fake identities and political conflicts. How one can trust some  authority and put his data in hands of them.  Identity is also a political concept, and nation-states will come against every system that aims to collect their citizen identities. Also we need to make sure that this authority does not create fake identities, or excluding specific group of people from system in favour of itself.
+\\
+Blockchain brings us a decentralized way for recording specific data in an immutable ledger -which the \textit{correctness} of data also garaunteed by computer code, based on prespecefied rules. Decentralized money is a direct application of such a ledger : a monetary system can be reduced to statements in form of "X has c coins" and "X gives Y c coins". Bitcoin just records these statements -transactions- in it's Blockchain. Nature of identity verification is very close to this "record" logic, because identity is simply some information about you, and some claims that accept the correctness of those information. 
+\\
+UniqueID aims to bring online and decentralized one-person-one-account system based on biometric data for recognizing people, human verifiers for identity verification processes, blockchain for recording data. Similar Bitcoin which incentives people who contribute their computational power to network with new Bitcoins, UniqueID uses a token system and a novel governance mechanism to incentives human verifiers and distributing operations while preventing creation of monopoly of power and bad behaviour.
+\\
+Recently there have been efforts in order to creating decentralized identity verifications with different approaches.  \ref{•} , ...(sovrin, proof of personhood, uport) are examples of such systems. To the best of our knowledge, between system which providing unique account for every person, none of them are permissionless and fully decentralized, and permanent at the same time.
+\\
+Identity is also an important problem, not just in digital world. Roots of many nation-wide issues are identity. Over 1 billion people  does not have any identity document, and can not participate in finincial and legal transactions. Old instituions for democracy are changing slow and are not efficient, because of berreucratic and paper-based identities leads to costly votings. Universal basic income, as a novel idea, can be executed only in the existence of worldwide identity system.
 
 \subsection{Paper organization}
 
@@ -41,7 +48,7 @@ Salaam.
 \subsection{Bitcoin}
 \subsection{Smart Contracts}
 \subsection{Decentralized Systems}
-\subsection{ Cryptography}
+\subsection{Cryptography}
 
 
 \section{ Problem Specification}
@@ -230,6 +237,8 @@ Identity needs to be secure against theft or getting lost, on the other hand, to
 As we suggested in "Problem Specification" section, there is a close relationship between the definition of human in our design and trust, based on that point of view we propose a solution for identity theft problem. Each user has to declare a group of at-least 5 trusted ones (friends, family or lawyer) as her trust circle, which have the authority to agree on identity theft or loss and owner of that account can reclaim his identity with new private-key by participating in the validation process.\\
 Based on how much the system can tolerate the dead identities, one can think of a extending process for identity holders, similar to new identity registration process with less redundancy.
 \subsection{Centralization of Validation Mechanism}
+There is always a fear about centralization of processes in decentralized systems, like what happens in Bitcoin mining. Root of this centralization is economics of scale: the bigger you are, the less you can pay for constant costs and more you can invest in lowering other costs. This can happen for verification process, and a few verifiers take control over all process. First, because verifiers in disjoint cities can not merged and there is not direct competition between them, there is always some geographical decentralization of verifiers. For one city, the hierarchial voting system can prevent such centralization, because it collect meaningful votes, means that you put your vote on someone who you know him, preventing some "celebrity" or "briber" from collecting votes. Also, nature of verification process in not something like mining, and does not need complex knowledge or expensive devices, and every one can get into it (It just need your "time", biometric device and small place). 
+
 \subsection{Fairness}
 \subsection{Lack of Incentive}
 
