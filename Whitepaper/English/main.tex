@@ -1,13 +1,14 @@
 \documentclass[conference]{IEEEtran}
 \usepackage{url,setspace,amssymb,tikz,algorithmicx,algorithm}
-\usepackage{setspace}
+\usepackage[numbers,sort&compress]{natbib}
+
 \usepackage[OT1]{fontenc} 
 
-\onehalfspacing
+
 
 \title{proposal}
 \begin{document}
-\title{UniqueID: Decentralized Identity System Based on Biometrics and Trust Networks}
+\title{UniqueID: A Decentralized Identity System Based on Biometrics and Trust Network}
 \author{\IEEEauthorblockN{Mohammad-Javad Hajialikhani}
 	\IEEEauthorblockA{Department of Computer Engineering\\
 		Sharif University of Technology\\
@@ -23,27 +24,20 @@
 	TODO
 \end{abstract}
 \section{Introduction}
-Identity verification has always been an important problem in online systems. While identity is a key for solving a wide range of challenges, including Sybil attacks and accountable votings, there is no universal system for holding human identities: Identity databases usually created and managed by governments or financial institutions privately. Social media and messengers solved the problem partially by relying on other systems: E-mail, mobile phone number, credit card information, other reputable social media accounts etc. These methods are not suitable for highly critical applications(e.g. voting) and prone to violating users privacy. There is not any system for assigning every online human exactly one account, which can be used for logging into other systems as well.
+Identity verification has always been an important problem in online systems. While identity is a key for solving a wide range of challenges, including Sybil attacks and accountable votings, there is no universal system for holding human identities. Identity databases usually created and managed by governments or financial institutions privately. Social media and messengers solved the problem partially by relying on other systems such as E-mail, mobile phone number, credit card information, and other reputable social media accounts. These methods are not suitable for highly critical applications(e.g. voting) and prone to violating users privacy. Currently there is not any system for assigning every online human exactly one account, which can be used for logging into other systems as well.
 \\
-Centralized models for identity verification are all prone to misuses, fake identities, and political conflicts. How one can trust some authority and put his data in hands of them.  Identity is also a political concept, and nation-states will come against every system that aims to collect their citizen identities. Also, we need to make sure that this authority does not create fake identities, or excluding a specific group of people from the system in favor of itself.
+Centralized models for identity verification are all prone to misuses, fake identities, and political conflicts. Identity is a political concept, and nation-states will come against every system that aims to collect their citizen identities. Moreover, we need to make sure that such an authority does not create fake identities, or excluding a specific group of people from the system in favor of itself.
 \\
-Blockchain brings us a decentralized way for recording specific data in an immutable ledger -which the \textit{correctness} of data also guaranteed by computer code, based on prespecified rules. Decentralized money is a direct application of such a ledger: a monetary system can be reduced to statements in form of "X has c coins" and "X gives Y c coins". Bitcoin just records these statements -transactions- in its Blockchain. Nature of identity verification is very close to this "record" logic because identity is simply some information about you, and some claims that accept the correctness of those information. 
+Blockchain brings us a decentralized way for recording specific data in an immutable ledger -which the \textit{correctness} of data also guaranteed by computer code, based on prespecified rules. Decentralized money is a direct application of such a ledger, a monetary system can be reduced to statements in form of \textit{``X has c coins"} and \textit{``X gives Y c coins"}. Bitcoin just records these statements -\textit{transactions}- in its Blockchain. Nature of identity verification is very close to this \textit{record} logic because identity is simply some information about you, and some claims about correctness of those information by other people. 
 \\
-UniqueID aims to bring online and decentralized one-person-one-account system based on biometric data for recognizing people, human verifiers for identity verification processes, blockchain for recording data. Similar Bitcoin which incentives people who contribute their computational power to network with new Bitcoins, UniqueID uses a token system and a novel governance mechanism to incentives human verifiers and distributing operations while preventing the creation of a monopoly of power and bad behavior.
+UniqueID aims to bring online and decentralized one-person-one-account system based on biometric data for recognizing people, human verifiers for identity verification processes, and blockchain for recording data. Similar Bitcoin which incentives people who contribute their computational power to network with new Bitcoins, UniqueID uses a token system and a novel governance mechanism to incentives human verifiers and distributing operations while preventing the creation of a monopoly of power and bad behaviors.
 \\
-Recently there have been efforts in order to create decentralized identity verifications with different approaches.  \ref{•} , ...(sovrin, proof of personhood, uport) are examples of such systems. To the best of our knowledge, between systems that providing a unique account for every person, none of them are permissionless and fully decentralized, and permanent at the same time.
+Recently there have been efforts in order to create decentralized identity verifications with different approaches. \cite{proofofpersonhood, uport, sovrin} are examples of such systems. To the best of our knowledge, among all the systems which provide a unique account for every person, none of them are permissionless, fully decentralized, and permanent at the same time.
 \\
-Identity is also an important problem, not just in the digital world. Roots of many nation-wide issues are identity-related issues. Over 1 billion people do not have any identity document, and can not participate in financial and legal transactions. Old institutions for democracy are changing slowly and are not efficient, because of bureaucratic and paper-based identities leads to costly votings. Universal basic income, as a novel idea, can be executed only in the existence of worldwide identity system.
-
-\subsection{Paper organization}
+Identity is also an important problem, not just in the digital world. Roots of many nation-wide issues are identity-related issues. Over 1 billion people do not have any identity document, and can not participate in financial and legal transactions \cite{worldbankid}. Old institutions for democracy are changing slowly and are not efficient, because of bureaucratic and paper-based identities leads to costly votings \cite{democracyearth}. Universal basic income, as a novel idea, can be executed only in the existence of a worldwide identity system \cite{basicincome}.
 
 
-
-\section{Preliminaries}
-\subsection{Bitcoin}
-\subsection{Smart Contracts}
-\subsection{Decentralized Systems}
-\subsection{Cryptography}
+%%%% (Contributions and Paper organization)
 
 
 \section{ Problem Specification}
@@ -53,33 +47,37 @@ In this section, we define our problem formally.
 The simplest formulation of our problems is: \\
 \textit{Create a decentralized system for assigning exactly one public key to every human, without violating users privacy. }
 \\
-This definition can create some debates. First, we must define words like user, human and decentralized, as we see in next section. We can see this system as creating a list of valid public keys, without trusting any centralized authority. By "system", we mean some socio-economic design, where some group of people, encouraging by economic incentives, forming a specific structure toward achieving a goal. 
+This definition can create some debates. First, we must define words like user, human, and decentralized as we see in next section. We can see this system as creating a list of valid public keys, without trusting any centralized authority. By \textit{system}, we mean some socio-economic design, where some group of people, encouraging by economic incentives, forming a specific structure toward achieving a goal. 
 
 \subsection{Terminology}
 
 \subsubsection{Human}
-When we want to design an identity system for "humans", we must tackle with two questions :
+When we want to design an identity system for \textit{humans}, we must tackle with two questions :
 \\
-1. What makes an entity a "human" ?
+1. What makes an entity a \textit{human} ?
 \\
-2. What makes this human persistent over time? How  can we say one person is "same" over time?
+2. What makes this human persistent over time? How  can we say one person is \textit{same} over time?
 \\
-The first question is crucial, to knowing "who" can enter the system. Can we name strong Artificial Intelligence a human? It seems that all of us have some consensus on a definition of a human. It's a combination of some specific body properties (shape, face ...) and intellectual abilities (memory, language ...). 
+The first question is crucial, to knowing \textit{who} can enter the system. Can we name strong Artificial Intelligence a human? It seems that all of us have some consensus on a definition of a human. It's a combination of some specific body properties (shape, face ...) and intellectual abilities (memory, language ...). 
 \\
 Second question is harder, and a famous unsolved problem in philosophy. If we want to project the identity of a person to any of his properties, we lose something. for example, if we define a personal identity over time as a person's body, It is known that all body cells are replaced after some time. But we just need some properties that are persistent over time for most persons (without any fundamental philosophical reason). We can name three of this properties: 
 \\
-\textbf{Biometrics:} Some specific human body structures have proven to be persistent and unique over time. Fingerprints, DNA and iris scan are examples of these biometrics.
-\\
-\textbf{Memory:} Brain of normal person can memorize some data and recognize it over time. persistence of memory is almost true for all persons.
-\\
-\textbf{Trust:} This is less clear than previous properties. Trust is how other people know and recognize one person. Basically it is combined from some of mind-body properties, But here "judging" over these properties are up to others. Trust is how other people see someone persistent and unique over time. Human judgement can make some errors, But it works well in many situations.
+\begin{itemize}
+\item{Biometrics:}
+Some specific human body structures have proven to be persistent and unique over time. Fingerprints, DNA and iris scan are examples of these biometrics.
+\item{Memory:}
+Brain of normal person can memorize some data and recognize it over time. persistence of memory is almost true for all persons.
+\item{Trust:}
+This is less clear than previous properties. Trust is how other people know and recognize one person. Basically it is combined from some of mind-body properties, But here ``judging" over these properties are up to others. Trust is how other people see someone persistent and unique over time. Human judgement can make some errors, But it works well in many situations.
+\end{itemize}
+
 
 
 \subsubsection{Decentralized}
 
 Defining decentralization, especially in rigorous form is very hard. We can think of decentralization in a political form here: there is not any specific entity -state, corporation- or person who can affect the system, creating or removing identities. One side of this decentralization is the inability of an entity in changing ledger information: account balances, biometrics etc. Blockchain already makes this part possible. Another side is the inability in adding identities and influencing how people trust each other, and here is where our design should gain such decentralization.
 \\
-We always see the first side as \textit{"How much money or coordination is needed for attacking system"}, e.g. Bitcoin hashrate gives us minimum on computational power (that can be expressed in computational devices that one can buy with money) that an attacker needs for the double-spending attack. Also, how current hashrate distributed shows us another aspect of decentralization: number of entities that form 51 percent of the system. However, we have harder times dealing with the second side. One can formalize that as \textit{"How many persons should collude, and how much money they need, in order to bring X to the system?"} X can be making one fake identity, making infinite fake identities, preventing someone from entering the system (censorship) and any other unwanted incident. We analyze our system from this point of view in section 6. 
+We always see the first side as \textit{``How much money or coordination is needed for attacking system"}, e.g. Bitcoin hashrate gives us minimum on computational power (that can be expressed in computational devices that one can buy with money) that an attacker needs for the double-spending attack. Also, how current hashrate distributed shows us another aspect of decentralization: number of entities that form 51 percent of the system. However, we have harder times dealing with the second side. One can formalize that as \textit{``How many persons should collude, and how much money they need, in order to bring X to the system?"} X can be making one fake identity, making infinite fake identities, preventing someone from entering the system (censorship) and any other unwanted incident. We analyze our system from this point of view in section 6. 
 
 
 \subsubsection{Incentives}
@@ -90,7 +88,7 @@ We can see this kind of systems as a form of cooperative games, Which people int
 
 
 
-\section{ UniqueID Design}
+\section{UniqueID Design}
 In this section, we will explain how UniqueID works and solves the decentralized proof-of-unique-human problem. Our system is based on some concepts and components that we will cover them in this chapter in detail. Before that, we provide an overall flow of the system.
 
 \subsection{Overal Flow}
@@ -99,7 +97,7 @@ Uniquid aims to provide a permanent and reliable identity for everyone without v
 \\
 There are some questions arising here, such as how users assigned to verifiers, what is the incentives of verifiers for checking others claims and Where is the starting point of the system. for addressing these questions and concepts, we discuss them in depth in following subsections.
 \subsection{Biometrics}
-Biometric data is how we identify and know "humans". We need almost permanent, unique and well-studied biometrics for our system that storing them on blockchain do not create any privacy concerns. 
+Biometric data is how we identify and know ``humans". We need almost permanent, unique and well-studied biometrics for our system that storing them on blockchain do not create any privacy concerns. 
 Biometric data will be used to check uniqueness of individuals and prevent the creation of fake identities and Sybil attack. A wide range of physical and behavioral biometric indicators have been developed during last decades in the literature of biometrics-based identification, including iris, face, finger vein, hand geometry, typing, etc. Advancements in machine learning and image processing offer many well-studied and tested methods of biometrics-based identification with equal error rate (EER) of at most $0.01$, let alone methods with much higher accuracy. Roughly speaking, compounding at least 4 of uncorrelated different biometrics as a biometric indicator, our system is ready to serve and identify 100 million people.\\
 
 \subsection{Trustless Setup}
@@ -119,7 +117,7 @@ There is a number of verifiers, say 100, in the city. Location and city of every
 \\
 
  after one user enters the system with his biometric, he should get certificates from a sufficient number of these verifiers(3 is enough here). Assigning verifiers to users done via blockchain with user's location and some common randomness. This randomness can be produced with another smart contract, with methods like randHound \ref{} or ...   This randomness,$ R_i$ combined and hashed with user's public key ($SHA256(R_i || pk$) can determine the assignment. \\ 
-The user then goes to the verifier in person and \textbf{reproduce}  his biometric in presence of verifier. Reproducing means sampling biometric data with verifier's biometric device, and then ensuring equality of this sample with previous biometrics on blockchain with some local computation. If verifier ensures that two biometrics are same, he $accepts$ user and issue a certificate with his signature on the blockchain. This is one of the most important components of UniqueID because here verifier can make sure that the biometric is real and belongs to the person who claims it. This will prevent fake biometrics attacks and identity thefts from happening.
+The user then goes to the verifier in person and \textit{reproduce}  his biometric in presence of verifier. Reproducing means sampling biometric data with verifier's biometric device, and then ensuring equality of this sample with previous biometrics on blockchain with some local computation. If verifier ensures that two biometrics are same, he $accepts$ user and issue a certificate with his signature on the blockchain. This is one of the most important components of UniqueID because here verifier can make sure that the biometric is real and belongs to the person who claims it. This will prevent fake biometrics attacks and identity thefts from happening.
 \\
 After user gaining these certificates, the system automatically accepts him as a valid and unique person. If only one of the verifiers does not issue the certificate, the user can ask for a reassignment. This is possible when one of the verifiers is corrupted or has made some error. In the end, if user verified ... (What is the mechanism for punishing this verifier??)
 \\
@@ -134,7 +132,7 @@ For the correctness of this process, and no one with many attempts cannot break 
 RANDOMNESS TOKENS disributed , PoS, 
 
 \subsection{Trust Delegation}
-Trust is a fundamental key to bringing healthy behavior in our system. Every valid person has one "trust" token and can delegate it to everyone. With this non-tradable token, one can give his ability to verify to someone else, because he can not actively verify new users. Thus the verifier with a large number of trusts have more verifying power, leading to slightly more tokens he gives for every new user.
+Trust is a fundamental key to bringing healthy behavior in our system. Every valid person has one ``trust" token and can delegate it to everyone. With this non-tradable token, one can give his ability to verify to someone else, because he can not actively verify new users. Thus the verifier with a large number of trusts have more verifying power, leading to slightly more tokens he gives for every new user.
 \\
 For more resilience to attacks, we can give verification power to those with more than $x$ trust tokens. this parameter can set based on city populations and maturity of the system. This leads to collecting trust tokens by verifiers, but how they can do this? Transparency is the key, Imagine verifier who brings a live cast of his place on a youtube chaوnnel, or providing access to his office for everyone (doors are open!). By providing more transparency, more people can trust you.
 \\
@@ -152,14 +150,15 @@ We introduced a native token for our platform, However, For every  token system 
 \\
 3) What is the monetary system, Or how tokens issued and distributed?
 \\
+\subsubsection{Nessecity}
+First, we need a token for creating incentive mechanisms. every decentralized platform needs sophisticated and well-studied incentives, for encouraging healthy behavior and punishing bad actors. One of the powerful tools to design mechanism is money because it is related to person's desirability and profits. In our system verifiers rewarded by tokens every time they verify a new, fresh user. Also, new users get some tokens for the first time they enter the system. Also, some important applications, such as UBI, need some form of currency.
 
-\textbf{Nessecity:} First, we need a token for creating incentive mechanisms. every decentralized platform needs sophisticated and well-studied incentives, for encouraging healthy behavior and punishing bad actors. One of the powerful tools to design mechanism is money because it is related to person's desirability and profits. In our system verifiers rewarded by tokens every time they verify a new, fresh user. Also, new users get some tokens for the first time they enter the system. Also, some important applications, such as UBI, need some form of currency.
-\\
+\subsubsection{Utility} 
+The most obvious use of such a token is for payments and store of value. Incentives bring new users to the system, and new users bring more acceptability and a wider market, projected in token price, bringing new incentives for further users. This positive network-effect, combined with a mechanism for more incentivizing first movers(but not make them big Whales!) can bring non-zero value for the token.(TODO : This is because of the nature of our system). Also, this system can host many other applications which need a unique and permanent identity, such as digital banking, property and real estate on the blockchain, reputation systems etc. These systems can provide their services on the UniquID blockchain, using a native token or at least paying fees for their smart contracts.
 
-\textbf{Utility:} The most obvious use of such a token is for payments and store of value. Incentives bring new users to the system, and new users bring more acceptability and a wider market, projected in token price, bringing new incentives for further users. This positive network-effect, combined with a mechanism for more incentivizing first movers(but not make them big Whales!) can bring non-zero value for the token.(TODO : This is because of the nature of our system). Also, this system can host many other applications which need a unique and permanent identity, such as digital banking, property and real estate on the blockchain, reputation systems etc. These systems can provide their services on the UniquID blockchain, using a native token or at least paying fees for their smart contracts.
-\\
+\subsubsection{Monetary system}
+Our goal is to achieve an issuance scheme which is fair and keeps the value of the token. Our proposal is selling fix amount of tokens (say, $a*x$) in pre-sale (with an Initial Coin Offering or similar methods) and then issuing $x$ tokens for every new user. This tokens distributed between verifiers of that user and herself. So after $a$ new users, tokens in the hands of users is equal to ICO tokens. This can provide $fairness$ for the system because initial holders are not giants anymore, and after the system became popular(=more users) their influence gets reduced. Also, initial investors have incentives for investment because they can buy tokens cheap early. It will be promised to them that their tokens have an influence equal to $a$ users, and they can guess what they earn by the estimated value of an identity system with $a$ users. This issuance scheme is linear in the number of users, However, the utility of users(network effect) is quadratic, so we can predict a slight rise in price over time. At least, It's not a super-inflationary system: More user's, more utility, more demand and more supply responding them. Choosing $a$ parameter and schemes for incentivizing early users (e.g. changing reward over time) is for further research.
 
-\textbf{Monetary system:} Our goal is to achieve an issuance scheme which is fair and keeps the value of the token. Our proposal is selling fix amount of tokens (say, $a*x$) in pre-sale (with an Initial Coin Offering or similar methods) and then issuing $x$ tokens for every new user. This tokens distributed between verifiers of that user and herself. So after $a$ new users, tokens in the hands of users is equal to ICO tokens. This can provide $fairness$ for the system because initial holders are not giants anymore, and after the system became popular(=more users) their influence gets reduced. Also, initial investors have incentives for investment because they can buy tokens cheap early. It will be promised to them that their tokens have an influence equal to $a$ users, and they can guess what they earn by the estimated value of an identity system with $a$ users. This issuance scheme is linear in the number of users, However, the utility of users(network effect) is quadratic, so we can predict a slight rise in price over time. At least, It's not a super-inflationary system: More user's, more utility, more demand and more supply responding them. Choosing $a$ parameter and schemes for incentivizing early users (e.g. changing reward over time) is for further research.\\ 
 
 
 
@@ -172,7 +171,7 @@ UniqueID is inherently one-person-one-vote, and this gives us new opportunities 
 \\
 First, small communities of $50-100$ persons choose one person from themselves. They put their trust and vote on him, and can also track his activity and ask him about that. Because they are a small group of people, it is expected that they know each other well and can make necessary communications between themselves and choose a qualified representative. these are layer-1 representatives, and they should know each other and follow system changes and discussions, and also choose layer-2 persons. Every $30-40$ of these layer-1 representatives should gather and choose one representative. And the same for layer-3 : every $20-30$ layer-2 people can choose one layer-3 representative from them. See figure X for visual ...
 \\
-This system should decide for critical decisions such as choosing parameters and consensus rules. Majority consensus seems a very good method for making decisions in a system with verified identities, but also can cause some problems. Not \textbf{every} decision can be made by a majority (51 percent) of votes. Changing some critical parameter of a system (number of verifiers needed for verifying one person) is a clear example of this. So we need to group decisions based on their importance and put some thresholds on the percentage of votes needed for making decisions in every group (super-majority rules).
+This system should decide for critical decisions such as choosing parameters and consensus rules. Majority consensus seems a very good method for making decisions in a system with verified identities, but also can cause some problems. Not \textit{every} decision can be made by a majority (51 percent) of votes. Changing some critical parameter of a system (number of verifiers needed for verifying one person) is a clear example of this. So we need to group decisions based on their importance and put some thresholds on the percentage of votes needed for making decisions in every group (super-majority rules).
 \\
 Because of low participation, lack of incentive for voting and lack of knowledge for making correct decisions we should give some authority to representatives. But for lowering corruption and collusion, in addition to transparency, every decision needs greater consensus among higher layers. for example, if we need 51 percent of all user votes for some parameter change, we need 68, 85, 95 percent  of votes for layer 1,2,3, respectively.
 \\
@@ -200,7 +199,7 @@ Every verifier stakes X tokens and locks them. If the system determines some ver
 \subsection{Geographical Dispersion}
 Until now we assume that there is one city, where all verifiers and users are close to each other and interaction between them is easy. In the real world, however, we have thousands of cities in different countries, villages, no-residence areas etc. This variety makes some serious challenges for a system relying heavily on peer-to-peer verifications in the same place.
 \\
-The first problem is how new cities and places will join the system? So far we design our system and "first verifiers" based on assumption that they are all in the same place, That's not true in real world. Imagine a scenario where we start the system from Tokyo, and after a while, people in Vienna want to join the system. Should they go to Tokyo and Verify their identity?
+The first problem is how new cities and places will join the system? So far we design our system and ``first verifiers" based on assumption that they are all in the same place, That's not true in real world. Imagine a scenario where we start the system from Tokyo, and after a while, people in Vienna want to join the system. Should they go to Tokyo and Verify their identity?
 \\
 Some possible solutions we talk about them here, but solving this problem needs more thinking. First, we can have another trustless setup in the new city. But for keeping the integrity of the system, other existing verifiers around the world should take place in this setup. The system should choose these people and provide their expenses in a secure and decentralized way (Making a data feed for the list of valid cities, and some kind of voting or random assigning between volunteer verifiers). So based on these new verifiers, users in this city can start their verification processes. Another solution is to make as many as verifiers in the first setup, Bringing people from different locations around the world in one borderless place (an airport, e.g.) and then start the system with these verifiers. 
 \\
@@ -211,7 +210,7 @@ Second is how residences in small cities and villages can join the system? Areas
 It seems that using other methods for verification, we can solve the identity problem without facing geographical dispersion. We think that this challenge is fundamental, i.e. near every system for securely verifying identities has this problem.
 \\
 
-First, verifying human identity always require some human work. Until now, It's impossible for an AI for answering the question of "sameness" of two human objects over time. Nature of identity, Combination of physical and mental attributes, is the root of this hardness. So people should identify people. Now, we have choices of making this verification in same physical place, or from long distance. We argue that long-distance methods are prone to errors and attacks: Every long distance method consists of sending some documents and information and making some interaction (video chat, voice chat etc.) between verifier and user. Both have limitations: every document (video proof of your biometric, voice captcha etc.) can get hacked with AI methods. Even further, AI enables us to fake a face in real-time video chat.
+First, verifying human identity always require some human work. Until now, It's impossible for an AI for answering the question of ``sameness" of two human objects over time. Nature of identity, Combination of physical and mental attributes, is the root of this hardness. So people should identify people. Now, we have choices of making this verification in same physical place, or from long distance. We argue that long-distance methods are prone to errors and attacks: Every long distance method consists of sending some documents and information and making some interaction (video chat, voice chat etc.) between verifier and user. Both have limitations: every document (video proof of your biometric, voice captcha etc.) can get hacked with AI methods. Even further, AI enables us to fake a face in real-time video chat.
 \\
 Geographical dispersion of people around the world makes some fundamental challenge for identity systems. Even in a simple(and bad!) system which you should get some certificates from your friends (and you get verified after that) we face this problem because people you know are mostly near you. 
 
@@ -227,13 +226,13 @@ Geographical dispersion of people around the world makes some fundamental challe
 The current design of UniqueID requires permanent storage of all claimed biometrics and also a computational infrastructure for automatic uniqueness check of new claims comparing to previously verified ones. While It is theoretically possible to do all the storage and computation on the blockchain, say Ethereum, but practically, in that case, the cost of operation will become prohibitively large. \\
 In the early stages of development, UniqueID will utilize IPFS or other production-ready decentralized storage solutions to store biometric claims. TrueBit protocol offers a general purpose solution to make computation off-chain at the cost of negligible less decentralization. \\
 While TrueBit protocol can practically mitigate the problem of prohibitive computation costs, it is important to note that the special task of checking uniqueness of new biometric claims is capable of being done in parallel. One can think of a smart-contract that offer a reward for the one who finds the closest previously verified unique biometric to the new claim, the results can be verified using a TrueBit like protocol. This design prevents waste of computational resources to a significant level.\\
-To get most out of UniqueID network, it is reasonable to develop an independent blockchain and storage layer. It will enable the potential for Proof-of-unique-Human mining system which is explained in "Novel Mining System" section. 
+To get most out of UniqueID network, it is reasonable to develop an independent blockchain and storage layer. It will enable the potential for Proof-of-unique-Human mining system which is explained in ``Novel Mining System" section. 
 \subsection{Identity Theft or Death}
 Identity needs to be secure against theft or getting lost, on the other hand, to enable some features like UBI, it is required to eliminate dead identities.\\
-As we suggested in "Problem Specification" section, there is a close relationship between the definition of human in our design and trust, based on that point of view we propose a solution for identity theft problem. Each user has to declare a group of at-least 5 trusted ones (friends, family or lawyer) as her trust circle, which have the authority to agree on identity theft or loss and owner of that account can reclaim his identity with new private-key by participating in the validation process.\\
+As we suggested in ``Problem Specification" section, there is a close relationship between the definition of human in our design and trust, based on that point of view we propose a solution for identity theft problem. Each user has to declare a group of at-least 5 trusted ones (friends, family or lawyer) as her trust circle, which have the authority to agree on identity theft or loss and owner of that account can reclaim his identity with new private-key by participating in the validation process.\\
 Based on how much the system can tolerate the dead identities, one can think of an extending process for identity holders, similar to new identity registration process with less redundancy.
 \subsection{Centralization of Validation Mechanism}
-There is always a fear about centralization of processes in decentralized systems, like what happens in Bitcoin mining. The root of this centralization is the economics of scale: the bigger you are, the less you can pay for constant costs and more you can invest in lowering other costs. This can happen for the verification process, and a few verifiers take control over all process. First, because verifiers in disjoint cities cannot be merged and there is no direct competition between them, there is always some geographical decentralization of verifiers. For one city, the hierarchical voting system can prevent such centralization, because it collects meaningful votes, means that you put your vote on someone who you know him, preventing some "celebrity" or "briber" from collecting votes. Also, nature of verification process is not something like mining and does not need complex knowledge or expensive devices, and everyone can get into it (It just need your "time", biometric device and small place). 
+There is always a fear about centralization of processes in decentralized systems, like what happens in Bitcoin mining. The root of this centralization is the economics of scale: the bigger you are, the less you can pay for constant costs and more you can invest in lowering other costs. This can happen for the verification process, and a few verifiers take control over all process. First, because verifiers in disjoint cities cannot be merged and there is no direct competition between them, there is always some geographical decentralization of verifiers. For one city, the hierarchical voting system can prevent such centralization, because it collects meaningful votes, means that you put your vote on someone who you know him, preventing some ``celebrity" or ``briber" from collecting votes. Also, nature of verification process is not something like mining and does not need complex knowledge or expensive devices, and everyone can get into it (It just need your ``time", biometric device and small place). 
 
 \subsection{Fairness}
 \subsection{Lack of Incentive}
@@ -245,7 +244,7 @@ There is always a fear about centralization of processes in decentralized system
 \section{Applications}
 
 \subsection{Novel mining system}
-Satoshi designed a mining system which he called it "one-CPU-one-vote". The idea behind this is to make it near "one-person-one-vote" because almost everyone has one CPU, and the system remains decentralized because CPU power is distributed around the world. Recently introduced Proof-of-Stake systems have a notion of reducing the energy needed by the proof-of-work system. Both PoS and PoW systems are vulnerable to centralization and other attacks. In UniqueID, however, we have new design space for consensus algorithms.
+Satoshi designed a mining system which he called it \textit{one-CPU-one-vote}. The idea behind this is to make it near \textit{one-person-one-vote} because almost everyone has one CPU, and the system remains decentralized because CPU power is distributed around the world. Recently introduced Proof-of-Stake systems have a notion of reducing the energy needed by the proof-of-work system. Both PoS and PoW systems are vulnerable to centralization and other attacks. In UniqueID, however, we have new design space for consensus algorithms.
 
 \subsection{Accountable Voting and Survey}
 Voting is a critical part of all democratic systems, also surveys play an important role in media and decision making processes, but there's no solution for running a public and accountable online voting without trusting any third-party to protect it against Sybil attacks or fake identities.\\
@@ -288,11 +287,52 @@ Democracy Earth is going to be a decentralized app mainly concerned with providi
 
 \begin{thebibliography}{1}
 	
-	\bibitem{IEEEhowto:kopka}
-	K. Aberer and Z. Despotovic, \emph{On Reputation in Game Theory Application on Online Settings}, 
+	\bibitem{proofofpersonhood}
+	M. Borge, E. Kokoris-Kogias,  P. Jovanovic,  L. Gasser,  N. Gailly,  B. Ford. \emph{Proof-of-Personhood: Redemocratizing Permissionless Cryptocurrencies.}
+	\hskip 1em plus 0.5em minus 0.4em\relax
+	2017 IEEE European Symposium on Security and Privacy Workshops.
+	
+	\bibitem{uport}
+	uPort \emph{https://www.uport.me}
+	\hskip 1em plus 0.5em minus 0.4em\relax
+	2018.
+	
+	\bibitem{sovrin}
+	The Sovrin Foundation. \emph{Sovrin: A Protocol and Token for SelfSovereign Identity and Decentralized Trust.} 
+	\hskip 1em plus 0.5em minus 0.4em\relax
+	 2018.
+	
+	\bibitem{worldbankid}
+	The World Bank official blog.\\
+	 \emph{https://blogs.worldbank.org/voices/global-identification-challenge-who-are-1-billion-people-without-proof-identity.} 
+	\hskip 1em plus 0.5em minus 0.4em\relax
+	04/25/2018.
+	
+	\bibitem{democracyearth}
+	Democracy Earth.
+	\emph{The Social Smart Contract.} 
+	\hskip 1em plus 0.5em minus 0.4em\relax
+	2017.
+
+	\bibitem{basicincome}
+	B. Ackerman, A. Alstott, P. Van Parij.
+	\emph{Redesigning Distribution: basic income and stakeholder grants as alternative cornerstones for a more egalitarian capitalism.}
+	\hskip 1em plus 0.5em minus 0.4em\relax
+	2003.	
+	
+	\bibitem{reputationgametheory}
+	K. Aberer and Z. Despotovic. \emph{On Reputation in Game Theory Application on Online Settings.}
 	\hskip 1em plus 0.5em minus 0.4em\relax
 	2005.
 	
+	
+	
 \end{thebibliography}
 
+\appendices
+\section{Preliminaries}
+\subsection{Bitcoin}
+\subsection{Smart Contracts}
+\subsection{Decentralized Systems}
+\subsection{Cryptography}
 \end{document}
