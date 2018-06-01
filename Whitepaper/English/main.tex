@@ -28,7 +28,7 @@ Identity verification has always been an important problem in online systems. Wh
 \\
 Centralized models for identity verification are all prone to misuses, fake identities, and political conflicts. Identity is a political concept, and nation-states will come against every system that aims to collect their citizen identities. Moreover, we need to make sure that such an authority does not create fake identities, or excluding a specific group of people from the system in favor of itself.
 \\
-Blockchain brings us a decentralized way for recording specific data in an immutable ledger -which the \textit{correctness} of data also guaranteed by computer code, based on prespecified rules. Decentralized money is a direct application of such a ledger, a monetary system can be reduced to statements in form of \textit{``X has c coins"} and \textit{``X gives Y c coins"}. Bitcoin just records these statements -\textit{transactions}- in its Blockchain. Nature of identity verification is very close to this \textit{record} logic because identity is simply some information about you, and some claims about correctness of those information by other people. 
+Blockchain brings us a decentralized way for recording specific data in an immutable ledger -which the \textit{correctness} of data also guaranteed by computer code, based on prespecified rules. Decentralized money is a direct application of such a ledger, a monetary system can be reduced to statements in form of \textit{``X has c coins"} and \textit{``X gives Y c coins"}. Bitcoin \cite{bitcoin} just records these statements -\textit{transactions}- in its Blockchain. Nature of identity verification is very close to this \textit{record} logic because identity is simply some information about you, and some claims about correctness of those information by other people. 
 \\
 UniqueID aims to bring online and decentralized one-person-one-account system based on biometric data for recognizing people, human verifiers for identity verification processes, and blockchain for recording data. Similar Bitcoin which incentives people who contribute their computational power to network with new Bitcoins, UniqueID uses a token system and a novel governance mechanism to incentives human verifiers and distributing operations while preventing the creation of a monopoly of power and bad behaviors.
 \\
@@ -165,7 +165,7 @@ Our goal is to achieve an issuance scheme which is fair and keeps the value of t
 The figure for comparing network effect and money supply.
 
 \subsection{Decentralized Governance}
-There is no independent entity for decision-making in decentralized systems, so they face governance problems on many levels. Long discussions on Ethereum DAO fork and Bitcoin Segwit2x proposal are clear examples of this issue. In UniqueID, There is new concept that should be governed as well : human work. There should be some mechanism for detecting and punishing $corrupted$ verifiers.
+There is no independent entity for decision-making in decentralized systems, so they face governance problems on many levels. Long discussions on  DAO fork and Bitcoin Segwit2x proposal are clear examples of this issue. In UniqueID, There is new concept that should be governed as well : human work. There should be some mechanism for detecting and punishing $corrupted$ verifiers.
 \\
 UniqueID is inherently one-person-one-vote, and this gives us new opportunities for shaping our governance model. We introduce some hierarchical representative democratic system, based on three layers of representatives. 
 \\
@@ -223,7 +223,7 @@ Geographical dispersion of people around the world makes some fundamental challe
 
 \subsection{Hard Forks}
 \subsection{Massive Computation and Storage}
-The current design of UniqueID requires permanent storage of all claimed biometrics and also a computational infrastructure for automatic uniqueness check of new claims comparing to previously verified ones. While It is theoretically possible to do all the storage and computation on the blockchain, say Ethereum, but practically, in that case, the cost of operation will become prohibitively large. \\
+The current design of UniqueID requires permanent storage of all claimed biometrics and also a computational infrastructure for automatic uniqueness check of new claims comparing to previously verified ones. While It is theoretically possible to do all the storage and computation on the blockchain, say Ethereum \cite{ethereum}, but practically, in that case, the cost of operation will become prohibitively large. \\
 In the early stages of development, UniqueID will utilize IPFS or other production-ready decentralized storage solutions to store biometric claims. TrueBit protocol offers a general purpose solution to make computation off-chain at the cost of negligible less decentralization. \\
 While TrueBit protocol can practically mitigate the problem of prohibitive computation costs, it is important to note that the special task of checking uniqueness of new biometric claims is capable of being done in parallel. One can think of a smart-contract that offer a reward for the one who finds the closest previously verified unique biometric to the new claim, the results can be verified using a TrueBit like protocol. This design prevents waste of computational resources to a significant level.\\
 To get most out of UniqueID network, it is reasonable to develop an independent blockchain and storage layer. It will enable the potential for Proof-of-unique-Human mining system which is explained in ``Novel Mining System" section. 
@@ -286,6 +286,16 @@ Democracy Earth is going to be a decentralized app mainly concerned with providi
 \subsection{ID2020}
 
 \begin{thebibliography}{1}
+	
+	\bibitem{bitcoin}
+	S. Nakamato. \emph{Bitcoin: A Peer-to-Peer Electronic Cash System.}
+	\hskip 1em plus 0.5em minus 0.4em\relax
+	2008.
+	
+	\bibitem{ethereum}
+	V. Buterin. \emph{A next-generation smart contract and decentralized application platform.}
+	\hskip 1em plus 0.5em minus 0.4em\relax
+	2014.
 	
 	\bibitem{proofofpersonhood}
 	M. Borge, E. Kokoris-Kogias,  P. Jovanovic,  L. Gasser,  N. Gailly,  B. Ford. \emph{Proof-of-Personhood: Redemocratizing Permissionless Cryptocurrencies.}
