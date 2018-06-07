@@ -46,7 +46,8 @@ In this section, we define our problem formally.
 \subsection{Problem Statement}
 The simplest formulation of our problems is: \\
 \textit{Create a decentralized system for assigning exactly one public key to every human, without violating users privacy. }
-\\
+
+
 This definition may create some debates. First, we must define words like user, human, and decentralized as we see in next section. We can see this system as maintaining and managing a list of valid public keys without trusting any centralized authority. By \textit{system}, we mean a socio-economic entity where some group of people, encouraged by economic incentives, forming a specific structure toward achieving a goal. 
 
 \subsection{Terminology}
@@ -81,7 +82,7 @@ We can see this kind of systems as a form of cooperative games, Which people int
 
 
 \subsubsection{Privacy}
-
+Privacy and data protection are of the most important challenges in every blockchain-based system because it is known that decentralized systems are inherently transparent, and all data can be accessed by any node. As shown in recent researches, many cryptocurrencies are at the risk of linking transactions and other data leaks. This transparency and lack of privacy is a cost of high security and immutability of them. We need more consideration for preserving privacy in an identity system which can be used for critical purposes and is permanent. Cryptographic advancements, such as functional cryptography, program obfuscation, and ring signatures can be used for enhancing privacy in UniqueID. We will discuss privacy concerns and imaginable solutions in depth in next chapter.
 
 
 \section{UniqueID Design}
@@ -90,7 +91,8 @@ In this section, we will explain how UniqueID works and solves the decentralized
 \subsection{Overal Flow}
 
 Uniquid aims to provide a permanent and reliable identity for everyone without violating his privacy.  Users should submit their biometric data on blockchain and then prove that they have submitted valid data. This proofs are “social” and based on trust; It means you must get some “biometric reproducing certificate” from current accepted users or validators. These validators ask you to “reproduce” your claimed biometric in order to preventing fake biometrics attacks.
-\\
+
+
 There are some questions arising here, such as how users get assigned to verifiers, what is the incentives of verifiers for checking others claims and where is the starting point of the system. We discuss these questions and concepts in depth in following subsections.
 \subsection{Biometrics}
 Biometric data is how we identify and know ``humans". We need almost permanent, unique and well-studied biometrics for our system that storing them on blockchain do not create any privacy concerns. 
@@ -110,11 +112,15 @@ CAPTCHAs \cite{CAPTCHA} are mechanisms for recognizing humans from machines. CAP
 
 \subsection{Verification Mechanism}
 There is a number of verifiers, say 100, in the city. Location and city of every verifier recorded in the blockchain. We assume that user's public key is $pk$.
-\\
 
- after one user enters the system with his biometric, he should get certificates from a sufficient number of these verifiers(3 is enough here). Assigning verifiers to users done via blockchain with user's location and some common randomness. This randomness can be produced with another smart contract, with methods like randHound \ref{} or ...   This randomness,$ R_i$ combined and hashed with user's public key ($SHA256(R_i || pk$) can determine the assignment. \\ 
+
+ after one user enters the system with his biometric, he should get certificates from a sufficient number of these verifiers(3 is enough here). Assigning verifiers to users done via blockchain with user's location and some common randomness. This randomness can be produced with another smart contract, with methods like randHound \ref{} or ...   This randomness,$ R_i$ combined and hashed with user's public key ($SHA256(R_i || pk$) can determine the assignment. 
+ 
+ 
 The user then goes to the verifier in person and \textit{reproduce}  his biometric in presence of verifier. Reproducing means sampling biometric data with verifier's biometric device, and then ensuring equality of this sample with previous biometrics on blockchain with some local computation. If verifier ensures that two biometrics are same, he $accepts$ user and issue a certificate with his signature on the blockchain. This is one of the most important components of UniqueID because here verifier can make sure that the biometric is real and belongs to the person who claims it. This will prevent fake biometrics attacks and identity thefts from happening.
-\\
+
+
+
 After user gaining these certificates, the system automatically accepts him as a valid and unique person. If only one of the verifiers does not issue the certificate, the user can ask for a reassignment. This is possible when one of the verifiers is corrupted or has made some error. In the end, if user verified ... (What is the mechanism for punishing this verifier??)
 \\
 For the correctness of this process, and no one with many attempts cannot break it and assigned to his favorable verifiers we add a barrier in entering the system. There are just three ways you can enter the system:
@@ -129,9 +135,11 @@ RANDOMNESS TOKENS disributed , PoS,
 
 \subsection{Trust Delegation}
 Trust is a fundamental key to bringing healthy behavior in our system. Every valid person has one ``trust" token and can delegate it to everyone. With this non-tradable token, one can give his ability to verify to someone else, because he can not actively verify new users. Thus the verifier with a large number of trusts have more verifying power, leading to slightly more tokens he gives for every new user.
-\\
+
+
 For more resilience to attacks, we can give verification power to those with more than $x$ trust tokens. this parameter can set based on city populations and maturity of the system. This leads to collecting trust tokens by verifiers, but how they can do this? Transparency is the key, Imagine verifier who brings a live cast of his place on a youtube chaوnnel, or providing access to his office for everyone (doors are open!). By providing more transparency, more people can trust you.
-\\
+
+
 Also, every user must have incentives for delegating her trust and delegate it to a correct person. Restricting some important features of the system (e.g. Universal Basic Income) to those who delegated their trust is one solution. Also for a corrupted verifier (there is some mechanism for finding corrupt behavior), all his trust get suspended for some period of time.
 
 
@@ -162,16 +170,21 @@ The figure for comparing network effect and money supply.
 
 \subsection{Decentralized Governance}
 There is no independent entity for decision-making in decentralized systems, so they face governance problems on many levels. Long discussions on  DAO fork and Bitcoin Segwit2x proposal are clear examples of this issue. In UniqueID, There is new concept that should be governed as well : human work. There should be some mechanism for detecting and punishing $corrupted$ verifiers.
-\\
+
+
 UniqueID is inherently one-person-one-vote, and this gives us new opportunities for shaping our governance model. We introduce some hierarchical representative democratic system, based on three layers of representatives. 
-\\
+
+
 First, small communities of $50-100$ persons choose one person from themselves. They put their trust and vote on him, and can also track his activity and ask him about that. Because they are a small group of people, it is expected that they know each other well and can make necessary communications between themselves and choose a qualified representative. these are layer-1 representatives, and they should know each other and follow system changes and discussions, and also choose layer-2 persons. Every $30-40$ of these layer-1 representatives should gather and choose one representative. And the same for layer-3 : every $20-30$ layer-2 people can choose one layer-3 representative from them. See figure X for visual ...
-\\
+
+
 This system should decide for critical decisions such as choosing parameters and consensus rules. Majority consensus seems a very good method for making decisions in a system with verified identities, but also can cause some problems. Not \textit{every} decision can be made by a majority (51 percent) of votes. Changing some critical parameter of a system (number of verifiers needed for verifying one person) is a clear example of this. So we need to group decisions based on their importance and put some thresholds on the percentage of votes needed for making decisions in every group (super-majority rules).
-\\
+
+
 Because of low participation, lack of incentive for voting and lack of knowledge for making correct decisions we should give some authority to representatives. But for lowering corruption and collusion, in addition to transparency, every decision needs greater consensus among higher layers. for example, if we need 51 percent of all user votes for some parameter change, we need 68, 85, 95 percent  of votes for layer 1,2,3, respectively.
-\\
-In this process, people can track their trustee activities and votes, and ask for explanation and reasons. Everyone can change his trustee everytime, and delegate his trust to another one. However, representatives should not lose their position with leaving one of their trusts, so there can be a threshold(e.g. 20 percent) that when they leave, the person becomes invalid. \\
+
+
+In this process, people can track their trustee activities and votes, and ask for explanation and reasons. Everyone can change his trustee everytime, and delegate his trust to another one. However, representatives should not lose their position with leaving one of their trusts, so there can be a threshold(e.g. 20 percent) that when they leave, the person becomes invalid. 
 
 
 preventing ads and ... in votes\\
@@ -183,44 +196,64 @@ preventing ads and ... in votes\\
 The verification system we purpose face some challenges. Bribing or coordinating some verifiers for creating fake identities is the most important one. Fake-ID prevention is the only thing we design our system for solving that. \\
 We can see two directions for solving this attacks. First, Set some sophisticated and hard rules for entering people that guarantee hardness of attacks. Second, design some mechanisms for detecting and removing fake identities and punishing bad verifiers. In this section, we explain a mechanism of the second kind. \\
 We first design a very secure registration way that there is zero-probability in entering with a fake identity, calling it A-judge. This can be a very hard process, including being verified by all verifiers in a specific city. There can be gathering of verifiers every 6 months in a public place, and handling all A-judges there.
-\\
+
+
 Using A-judges, we can design a system for lowering amount of coordination between verifiers for creating fake identities. We give every verifier and every layer-3 representative limited number of \textit{Identity re-checks} per month. They can use these re-checks for calling specific identities (here, biometrics) for     going through A-judge. These called identities should pass A-judge in a specified time, Otherwise, they lose their identity. Also, they have great incentive for going through this judge, because they rewarded by tokens. This way we can find fake-identities and punish bad verifiers.
-\\
+
+
 Every verifier stakes X tokens and locks them. If the system determines some verifiers as a bad verifier, his stake goes for anyone who called A-judge for his fake identity. So verifiers have the incentive for calling A-judges over fake identities if they know any. This makes coordination very hard: even if you bribe heavily some verifiers, After that, they can call A-judge over that identity. There should be also some random checks for preventing other forms of bad behavior.
 
+\subsection{Privacy}
+We can see different aspects of data privacy concerns in UniqueID. Below we discuss about each of them and their solutions in more detail.
+
+
+\subsubsection*{Biometric Data}
+In UniqueID we need user's biometric data for the human identification process. Leaking biometrics can lead to the harmful use of them, such as proving procedure in courts or searching for a possessor of a special account by authorities. What we need is a way for preserving the functionality of the system, without exposing biometrics to anyone.
+
+
+More formally, the process of biometrics can be described in terms of user $U_i$ puts his biometrics $B_i$ in a ledger $L$. This ledger then compute the function $AI(U_i,U_j)$ for every $j <= i$, ensuring $U_i$ is a fresh and new biometric. output of the $AI(x,y)$ can be binary, or a number in [0,1] demonstrating similarity between x and y. We want to preserve functionality of $AI$ function, But keeping $U_i$ secret. 
+
+Finding efficient and decentralized solution for this is an interesting challenge. We present a solution here which needs trusted setup. Consider there is an public and private key pair,$pk,sk$, where $pk$ is known to public but nobody knows $sk$. Also define $PrivAI(X,Y)$ as a code that first decrypting $X$ and $Y$ with $sk$, and then compute $AI$ on them. $ObfPrivAI$ is obfuscated version of program $PrivAI$ (Indistinguishable Obfuscation). 
+
+In a trusted setup, we can compute $sk,pk,PrivAI$ and $ObfPrivAI$ in one session, and then removing $sk$ and $PrivAI$. Then we put $ObfPrivAI$ on ledger instead of $AI$. Every user send an encrypted version of his biometric, $Enc_pk(U_i)$, to ledger. Now we can compare biometrics and gain predefined functionalities, without exposing user's biometrics. Designing some Multiparty setting for trusted setup, Proving the correctness of trusted setup procedure and thinking about more efficient protocols can be further challenges. 
+%Is there any ZKP which can proves correctness of ObfPrivAI?%
+\subsubsection*{Trust Tokens}
+\subsubsection*{Secure Logins}
 
 \section{Challanges }
 
 
 \subsection{Geographical Dispersion}
 Until now we assume that there is one city, where all verifiers and users are close to each other and interaction between them is easy. In the real world, however, we have thousands of cities in different countries, villages, no-residence areas etc. This variety makes some serious challenges for a system relying heavily on peer-to-peer verifications in the same place.
-\\
+
+
 The first problem is how new cities and places will join the system? So far we design our system and ``first verifiers" based on assumption that they are all in the same place, That's not true in real world. Imagine a scenario where we start the system from Tokyo, and after a while, people in Vienna want to join the system. Should they go to Tokyo and Verify their identity?
-\\
+
+
 Some possible solutions we talk about them here, but solving this problem needs more thinking. First, we can have another trustless setup in the new city. But for keeping the integrity of the system, other existing verifiers around the world should take place in this setup. The system should choose these people and provide their expenses in a secure and decentralized way (Making a data feed for the list of valid cities, and some kind of voting or random assigning between volunteer verifiers). So based on these new verifiers, users in this city can start their verification processes. Another solution is to make as many as verifiers in the first setup, Bringing people from different locations around the world in one borderless place (an airport, e.g.) and then start the system with these verifiers. 
-\\
+
 
 Second is how residences in small cities and villages can join the system? Areas with population less than 10000  may don't have any verifiers at all. One possible solution is assigning them to nearest cities, But it makes an entry barrier for them. Another solution is sending some verifiers from near cities for verification, But it can bring some attack vectors and unpredictable behavior. 
 
 \subsubsection*{Other methods}
 It seems that using other methods for verification, we can solve the identity problem without facing geographical dispersion. We think that this challenge is fundamental, i.e. near every system for securely verifying identities has this problem.
-\\
+
 
 First, verifying human identity always require some human work. Until now, It's impossible for an AI for answering the question of ``sameness" of two human objects over time. Nature of identity, Combination of physical and mental attributes, is the root of this hardness. So people should identify people. Now, we have choices of making this verification in same physical place, or from long distance. We argue that long-distance methods are prone to errors and attacks: Every long distance method consists of sending some documents and information and making some interaction (video chat, voice chat etc.) between verifier and user. Both have limitations: every document (video proof of your biometric, voice captcha etc.) can get hacked with AI methods. Even further, AI enables us to fake a face in real-time video chat.
-\\
+
+
 Geographical dispersion of people around the world makes some fundamental challenge for identity systems. Even in a simple(and bad!) system which you should get some certificates from your friends (and you get verified after that) we face this problem because people you know are mostly near you. 
 
 
 
-\subsection{Privacy}
-\subsubsection*{Trust Tokens}
-\subsubsection*{Biometric Data}
-\subsubsection*{Secure Logins}
+
 
 \subsection{Hard Forks}
 \subsection{Massive Computation and Storage}
 The current design of UniqueID requires permanent storage of all claimed biometrics and also a computational infrastructure for automatic uniqueness check of new claims comparing to previously verified ones. While It is theoretically possible to do all the storage and computation on the blockchain, say Ethereum \cite{ethereum}, but practically, in that case, the cost of operation will become prohibitively large. \\
-In the early stages of development, UniqueID will utilize IPFS or other production-ready decentralized storage solutions to store biometric claims. TrueBit protocol offers a general purpose solution to make computation off-chain at the cost of negligible less decentralization. \\
+In the early stages of development, UniqueID will utilize IPFS or other production-ready decentralized storage solutions to store biometric claims. TrueBit protocol offers a general purpose solution to make computation off-chain at the cost of negligible less decentralization. 
+
+
 While TrueBit protocol can practically mitigate the problem of prohibitive computation costs, it is important to note that the special task of checking uniqueness of new biometric claims is capable of being done in parallel. One can think of a smart-contract that offer a reward for the one who finds the closest previously verified unique biometric to the new claim, the results can be verified using a TrueBit like protocol. This design prevents waste of computational resources to a significant level.\\
 To get most out of UniqueID network, it is reasonable to develop an independent blockchain and storage layer. It will enable the potential for Proof-of-unique-Human mining system which is explained in ``Novel Mining System" section. 
 \subsection{Identity Theft or Death}
@@ -243,11 +276,15 @@ There is always a fear about centralization of processes in decentralized system
 Satoshi designed a mining system which he called it \textit{one-CPU-one-vote}. The idea behind this is to make it near \textit{one-person-one-vote} because almost everyone has one CPU, and the system remains decentralized because CPU power is distributed around the world. Recently introduced Proof-of-Stake systems have a notion of reducing the energy needed by the proof-of-work system. Both PoS and PoW systems are vulnerable to centralization and other attacks. In UniqueID, however, we have new design space for consensus algorithms.
 
 \subsection{Accountable Voting and Survey}
-Voting is a critical part of all democratic systems, also surveys play an important role in media and decision making processes, but there's no solution for running a public and accountable online voting without trusting any third-party to protect it against Sybil attacks or fake identities.\\
+Voting is a critical part of all democratic systems, also surveys play an important role in media and decision making processes, but there's no solution for running a public and accountable online voting without trusting any third-party to protect it against Sybil attacks or fake identities.
+
+
 Recent advancements in cryptography and blockchains technology offer many powerful solutions for end-to-end secure voting and auditable decentralized voting systems. UniqueID as a decentralized identity solution will make it possible to use all those advancements for social benefits without compromising people privacy.
 
 \subsection{Universal Basic Income}
-Universal basic income (UBI) is a kind of welfare system that is based on giving everyone a guaranteed basic income, totally independent of any other income. The idea of national basic income dates back to 18th century but various technical and political issues such as lack of trusted computational infrastructure or a form of trusted universal identity prevented implementation of a UBI system. Though UBI idea originally was presented as a way to save the society from poverty and injustice, many AI experts claim that given the fast and tremendous success of AI technology the world is heading toward a mass unemployment and a UBI system is inevitable and certainly required.\\
+Universal basic income (UBI) is a kind of welfare system that is based on giving everyone a guaranteed basic income, totally independent of any other income. The idea of national basic income dates back to 18th century but various technical and political issues such as lack of trusted computational infrastructure or a form of trusted universal identity prevented implementation of a UBI system. Though UBI idea originally was presented as a way to save the society from poverty and injustice, many AI experts claim that given the fast and tremendous success of AI technology the world is heading toward a mass unemployment and a UBI system is inevitable and certainly required.
+
+
 UniqueID provides a trustable universal identity and building a UBI system on top of it is just as easy as writing a simple smart-contract on Ethereum network or any other blockchain with access to UniqueID's validated identities. 
 
 \subsection{Reputation Systems}
@@ -262,13 +299,19 @@ In an abstract and conceptual level, Bitcoin's idea is to decentralize a specifi
 \subsection{Rethinking Governance}
 
 \section{Reviews}
-We categorize previously existing ideas in this area in two different categories, first decentralized identity management solutions which aim to provide a decentralized infrastructure to host centralized issued identities, including DID, Sovrin, and uPort. The second one is decentralized identity issuance solutions which aim to create or define a new kind of identity that is decentralized from its origin, including Democracy Earth and Bitnation, Proof-of-Personhood.\\
-Our work can be categorized in the later one, decentralized identity issuance systems. We want to emphasize that despite previously known solutions, UniqueID can bring decentralized, permanent, unique identity into reality by utilizing biometric authentication and social smart contracts. \\
+We categorize previously existing ideas in this area in two different categories, first decentralized identity management solutions which aim to provide a decentralized infrastructure to host centralized issued identities, including DID, Sovrin, and uPort. The second one is decentralized identity issuance solutions which aim to create or define a new kind of identity that is decentralized from its origin, including Democracy Earth and Bitnation, Proof-of-Personhood.
+
+
+Our work can be categorized in the later one, decentralized identity issuance systems. We want to emphasize that despite previously known solutions, UniqueID can bring decentralized, permanent, unique identity into reality by utilizing biometric authentication and social smart contracts. 
+
+
 In the following section, we briefly review some of the mentioned schemes and compare them to UniqueID in measures of political and operational decentralization, Sybil attack resistance  permanence of issued identities, and proper governance and incentive mechanisms. 
 
 \subsection{uPort}
 
-uPort is a decentralized infrastructure for claiming identities and receiving verification from other parties in the network. One can use uPort to host and digitize her identity such as national ID card or driving license and get verified by officials or other people for being the owner of the claimed identity.\\
+uPort is a decentralized infrastructure for claiming identities and receiving verification from other parties in the network. One can use uPort to host and digitize her identity such as national ID card or driving license and get verified by officials or other people for being the owner of the claimed identity.
+
+
  First of all, uPort is not designed for a decentralized originated identity which is well defined. Due to lack of a general identifier in uPort network, uPort do not provide a direct solution to anti-Sybil attack and enabling a universal basic income system. Though uPort provides the possibility to define decentralized originated identities, there is no intrinsic incentive or mechanism to do it.
 
 \subsection{Sovrin}
