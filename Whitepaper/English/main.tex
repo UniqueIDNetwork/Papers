@@ -47,21 +47,20 @@ In this section, we define our problem formally.
 The simplest formulation of our problems is: \\
 \textit{Create a decentralized system for assigning exactly one public key to every human, without violating users privacy. }
 \\
-This definition can create some debates. First, we must define words like user, human, and decentralized as we see in next section. We can see this system as creating a list of valid public keys, without trusting any centralized authority. By \textit{system}, we mean some socio-economic design, where some group of people, encouraging by economic incentives, forming a specific structure toward achieving a goal. 
+This definition may create some debates. First, we must define words like user, human, and decentralized as we see in next section. We can see this system as maintaining and managing a list of valid public keys without trusting any centralized authority. By \textit{system}, we mean a socio-economic entity where some group of people, encouraged by economic incentives, forming a specific structure toward achieving a goal. 
 
 \subsection{Terminology}
 
 \subsubsection{Human}
-When we want to design an identity system for \textit{humans}, we must tackle with two questions :
+When we want to design an identity system for humans, we must tackle two questions:
 \\
-1. What makes an entity a \textit{human} ?
+1. What makes an entity a \textit{human}?
 \\
-2. What makes this human persistent over time? How  can we say one person is \textit{same} over time?
+2. What makes this human persistent over time? How can we say one person is \textit{same} over time?
 \\
-The first question is crucial, to knowing \textit{who} can enter the system. Can we name strong Artificial Intelligence a human? It seems that all of us have some consensus on a definition of a human. It's a combination of some specific body properties (shape, face ...) and intellectual abilities (memory, language ...). 
+The first question is crucial, to knowing \textit{who} can enter the system. Can we name strong Artificial Intelligence a human? It seems that all of us have some consensus on a definition of a human. It's a combination of some specific body properties (e.g. shape, face, etc.) and intellectual abilities (e.g. memory, language, etc.). 
 \\
-Second question is harder, and a famous unsolved problem in philosophy. If we want to project the identity of a person to any of his properties, we lose something. for example, if we define a personal identity over time as a person's body, It is known that all body cells are replaced after some time. But we just need some properties that are persistent over time for most persons (without any fundamental philosophical reason). We can name three of this properties: 
-\\
+Second question is harder, and a famous unsolved problem in philosophy \cite{identity-personal}. If we want to project the identity of a person to any of his properties, we lose something. for example, if we define a personal identity over time as a person's body, it is known that all body cells are replaced after some time. But we just need some properties that are persistent over time for most persons (without any fundamental philosophical reason). We can name three of this properties: 
 \begin{itemize}
 \item{Biometrics:}
 Some specific human body structures have proven to be persistent and unique over time. Fingerprints, DNA and iris scan are examples of these biometrics.
@@ -71,17 +70,14 @@ Brain of normal person can memorize some data and recognize it over time. persis
 This is less clear than previous properties. Trust is how other people know and recognize one person. Basically it is combined from some of mind-body properties, But here ``judging" over these properties are up to others. Trust is how other people see someone persistent and unique over time. Human judgement can make some errors, But it works well in many situations.
 \end{itemize}
 
-
-
 \subsubsection{Decentralized}
-
-Defining decentralization, especially in rigorous form is very hard. We can think of decentralization in a political form here: there is not any specific entity -state, corporation- or person who can affect the system, creating or removing identities. One side of this decentralization is the inability of an entity in changing ledger information: account balances, biometrics etc. Blockchain already makes this part possible. Another side is the inability in adding identities and influencing how people trust each other, and here is where our design should gain such decentralization.
+Defining decentralization, especially in rigorous form is very hard partly because it takes different forms \cite{meaning-of-decentralization}. We focus on decentralization in its political form here: there is not any specific entity -state, corporation- or person who can affect the system, creating or removing identities. One side of this decentralization is the inability of an entity in changing ledger information: account balances, biometrics etc. Blockchain already makes this part possible. Another side is the inability in adding identities and influencing how people trust each other, and here is where our design should gain such decentralization.
 \\
 We always see the first side as \textit{``How much money or coordination is needed for attacking system"}, e.g. Bitcoin hashrate gives us minimum on computational power (that can be expressed in computational devices that one can buy with money) that an attacker needs for the double-spending attack. Also, how current hashrate distributed shows us another aspect of decentralization: number of entities that form 51 percent of the system. However, we have harder times dealing with the second side. One can formalize that as \textit{``How many persons should collude, and how much money they need, in order to bring X to the system?"} X can be making one fake identity, making infinite fake identities, preventing someone from entering the system (censorship) and any other unwanted incident. We analyze our system from this point of view in section 6. 
 
 
 \subsubsection{Incentives}
-We can see this kind of systems as a form of cooperative games, Which people interact each other for reaching a shared goal. For this reason, there must be enough incentives for parties to participate. Formally speaking, we should define the amount of effort, energy and other resources every party should put, and how many tokens he gets back. Analysing this market can give us the equilibrium and the prediction of what will happen at the end. In the case of Bitcoin,e.g., There are always incentives for some group of people (miners) for running full nodes and miner equipment for earning new Bitcoins, So the system will be alive as long as these coins paid to them.
+We can see this kind of systems as a form of cooperative games, Which people interact each other for reaching a shared goal. For this reason, there must be enough incentives for parties to participate. Formally speaking, we should define the amount of effort, energy and other resources every party should put, and how many tokens he gets back. Analysing this market can give us the equilibrium and the prediction of what will happen at the end. In the case of Bitcoin, e.g., There are always incentives for some group of people (miners) for running full nodes and miner equipment for earning new Bitcoins, So the system will be alive as long as these coins paid to them.
 
 
 \subsubsection{Privacy}
@@ -93,24 +89,24 @@ In this section, we will explain how UniqueID works and solves the decentralized
 
 \subsection{Overal Flow}
 
-Uniquid aims to provide a permanent and reliable identity for everyone without violating his privacy.  Users should submit their biometric data on blockchain and then prove that they have submitted valid data. This proofs are “social” and based on trust: It means you must get some “biometric reproducing certificate” from current accepted users or validators. This validator asks you to “reproduce” your claimed biometric and preventing fake biometrics attacks.
+Uniquid aims to provide a permanent and reliable identity for everyone without violating his privacy.  Users should submit their biometric data on blockchain and then prove that they have submitted valid data. This proofs are “social” and based on trust; It means you must get some “biometric reproducing certificate” from current accepted users or validators. These validators ask you to “reproduce” your claimed biometric in order to preventing fake biometrics attacks.
 \\
-There are some questions arising here, such as how users assigned to verifiers, what is the incentives of verifiers for checking others claims and Where is the starting point of the system. for addressing these questions and concepts, we discuss them in depth in following subsections.
+There are some questions arising here, such as how users get assigned to verifiers, what is the incentives of verifiers for checking others claims and where is the starting point of the system. We discuss these questions and concepts in depth in following subsections.
 \subsection{Biometrics}
 Biometric data is how we identify and know ``humans". We need almost permanent, unique and well-studied biometrics for our system that storing them on blockchain do not create any privacy concerns. 
-Biometric data will be used to check uniqueness of individuals and prevent the creation of fake identities and Sybil attack. A wide range of physical and behavioral biometric indicators have been developed during last decades in the literature of biometrics-based identification, including iris, face, finger vein, hand geometry, typing, etc. Advancements in machine learning and image processing offer many well-studied and tested methods of biometrics-based identification with equal error rate (EER) of at most $0.01$, let alone methods with much higher accuracy. Roughly speaking, compounding at least 4 of uncorrelated different biometrics as a biometric indicator, our system is ready to serve and identify 100 million people.\\
+Biometric data will be used to check uniqueness of individuals and prevent the creation of fake identities and Sybil attack. A wide range of physical and behavioral biometric indicators have been developed during last decades in the literature of biometrics-based identification, including iris, face, finger vein, hand geometry, typing, etc \cite{intro-biometic}. Advancements in machine learning and image processing offer many well-studied and tested methods of biometrics-based identification with equal error rate (EER) of at most $0.01$, let alone methods with much higher accuracy. Roughly speaking, compounding at least 4 of uncorrelated different biometrics as a biometric indicator, our system is ready to serve and identify 100 million people.\\
 
 \subsection{Trustless Setup}
 In a system where current users should approve new ones, we should have a mechanism for approving very first users. One method is to begin with a sufficient number of trusted persons and include their biometrics and keys as verified users. The challenge is how to select these persons without any need for a central third party? Below we explain three solutions for this issue.
 
 \subsubsection*{Transparent Peer-to-Peer Setup} 
-Transparency can be the key to solving trustless setup. There is a community of enthusiastic people around the project that can build healthy setup. Providing relevant information in a public channel, the community invited for joining a public party in special place and time. everyone who aims to join sending his proposal including name, biometrics and some identity document -just for transparency purposes. In the party, they start to verify each other in a peer-to-peer manner. Because the party is public, everyone can join and there would no monopoly or closed individuals in starting. Also, it's near impossible to fake an identity because it can be detected and claimed by just one person in a party. There can be a live cast of all of the steps of a party in public channel for forwarding transparency.
+Transparency can be the key to solving trustless setup. There is a community of enthusiastic people around the project that can build healthy setup. Providing relevant information in a public channel, the community invited for joining a public party in special place and time. Everyone who aims to join, has to send her proposal including name, biometrics and some identity document -just for transparency purposes. In the party, they start to verify each other in a peer-to-peer manner. Because the party is public, everyone can join and there would no monopoly or closed group of individuals at the beginning. Also, it's near impossible to fake an identity because it can be detected and claimed by just one person in a party. There can be a live cast of all of the steps of a party in public channel for forwarding transparency.
 
 \subsubsection*{Trusted Famous People}
-There are some people with a public profile who have no incentive for sabotaging the system, e.g. University Professors, known artists, and athletes or popular cafes, usually because of their high reputation among other individuals. Collecting some of these people who want to join in early verifying, and showing all the information and profiles can be a starting point for the system.
+There are some people with a public profile who have no incentive for sabotaging the system, e.g. university professors, known artists, and athletes or popular cafes, usually because of their high reputation among other individuals. Collecting some of these people who want to join in early verifying, and showing all the information and profiles can be a starting point for the system.
 
-\subsubsection*{ Decentralized CAPTCHA Party}
-CAPTCHAs {\ref{•}} are mechanisms for recognizing humans from machines. CAPTCHAs are AI-hard and it takes reasonable time for humans to solve them. Consider we construct some hard CAPTCHA that takes about 2 minutes for an average person to solve. We then organize a CAPTCHA party: in a specific time around the world, based on some common randomness(blockhash) a predefined smart contract starts assigning CAPTCHAs to everyone. 
+\subsubsection*{Decentralized CAPTCHA Party}
+CAPTCHAs \cite{CAPTCHA} are mechanisms for recognizing humans from machines. CAPTCHAs are AI-hard and it takes reasonable time for humans to solve them. Consider we construct some hard CAPTCHA that takes about 2 minutes for an average person to solve. We then organize a CAPTCHA party: in a specific time around the world, based on some common randomness (e.g. blockhash) a predefined smart contract starts assigning CAPTCHAs to participants. 
 
 \subsection{Verification Mechanism}
 There is a number of verifiers, say 100, in the city. Location and city of every verifier recorded in the blockchain. We assume that user's public key is $pk$.
@@ -300,10 +296,10 @@ Democracy Earth is going to be a decentralized app mainly concerned with providi
 	\bibitem{proofofpersonhood}
 	M. Borge, E. Kokoris-Kogias,  P. Jovanovic,  L. Gasser,  N. Gailly,  B. Ford. \emph{Proof-of-Personhood: Redemocratizing Permissionless Cryptocurrencies.}
 	\hskip 1em plus 0.5em minus 0.4em\relax
-	2017 IEEE European Symposium on Security and Privacy Workshops.
+	IEEE European Symposium on Security and Privacy Workshops 2017.
 	
 	\bibitem{uport}
-	uPort \emph{https://www.uport.me}
+	uPort \emph{\url{https://www.uport.me}}
 	\hskip 1em plus 0.5em minus 0.4em\relax
 	2018.
 	
@@ -314,8 +310,7 @@ Democracy Earth is going to be a decentralized app mainly concerned with providi
 	
 	\bibitem{worldbankid}
 	The World Bank official blog.\\
-	 \emph{https://blogs.worldbank.org/voices/global-identification-challenge-who-are-1-billion-people-without-proof-identity.} 
-	\hskip 1em plus 0.5em minus 0.4em\relax
+	 \emph{\url{https://blogs.worldbank.org/voices/global-identification-challenge-who-are-1-billion-people-without-proof-identity}.} 
 	04/25/2018.
 	
 	\bibitem{democracyearth}
@@ -330,6 +325,26 @@ Democracy Earth is going to be a decentralized app mainly concerned with providi
 	\hskip 1em plus 0.5em minus 0.4em\relax
 	2003.	
 	
+	\bibitem{identity-personal}
+	Eric T. Olson.
+	\emph{Personal Identity}.
+	\url{https://plato.stanford.edu/entries/identity-personal/} Stanford Encyclopedia of Philosophy 2015.	
+	
+	\bibitem{meaning-of-decentralization}
+	V. Buterin. 
+	\emph{The Meaning of Decentralization}.
+	\url{https://medium.com/@VitalikButerin/the-meaning-of-decentralization-a0c92b76a274} 2017.	
+	
+	\bibitem{intro-biometic}
+	A. K. Jain, A. Ross, S.  Prabhakar. \emph{An Introduction to Biometric Recognition.}
+	\hskip 1em plus 0.5em minus 0.4em\relax
+	IEEE Transactions on Circuits and Systems for Video Technology 2004.
+
+	\bibitem{CAPTCHA}
+	L. von Ahn, M. Blum, Nicholas J. Hopper, J. Langford. \emph{CAPTCHA: Using Hard AI Problems For Security.}
+	\hskip 1em plus 0.5em minus 0.4em\relax
+	Advances in Cryptology — EUROCRYPT 2003.
+
 	\bibitem{reputationgametheory}
 	K. Aberer and Z. Despotovic. \emph{On Reputation in Game Theory Application on Online Settings.}
 	\hskip 1em plus 0.5em minus 0.4em\relax
