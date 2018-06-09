@@ -217,8 +217,14 @@ Finding efficient and decentralized solution for this is an interesting challeng
 
 In a trusted setup, we can compute $sk,pk,PrivAI$ and $ObfPrivAI$ in one session, and then removing $sk$ and $PrivAI$. Then we put $ObfPrivAI$ on ledger instead of $AI$. Every user send an encrypted version of his biometric, $Enc_pk(U_i)$, to ledger. Now we can compare biometrics and gain predefined functionalities, without exposing user's biometrics. Designing some Multiparty setting for trusted setup, Proving the correctness of trusted setup procedure and thinking about more efficient protocols can be further challenges. 
 %Is there any ZKP which can proves correctness of ObfPrivAI?%
-\subsubsection*{Trust Tokens}
+
 \subsubsection*{Secure Logins}
+One can use UniqueID blockchain for designing some decentralized application, Specially as the one-person-one-account property is attracting for some purposes, such as social medias or banking. It is plausible that these systems should hold user's data private, and the identity of user's shoud not be revealed. More formally, there should be no relation between user's public key (or biometrics) and his social media account. This can be solved by introducing anynomous tokens, means having special token (one token per person, specified in application's smart contrac) for logging in. Adding ability of sending tokens anynomously between accounts, the user can send his app-token to anynomous account and start with a fresh identity. This ability can be achieved by ring signatures or zero knowlege prrofs, working examples are  Monero, Zcash or Raiden network.
+
+\subsubsection*{Trust Tokens}
+
+
+
 
 \section{Challanges }
 
@@ -274,6 +280,9 @@ There is always a fear about centralization of processes in decentralized system
 
 \subsection{Novel mining system}
 Satoshi designed a mining system which he called it \textit{one-CPU-one-vote}. The idea behind this is to make it near \textit{one-person-one-vote} because almost everyone has one CPU, and the system remains decentralized because CPU power is distributed around the world. Recently introduced Proof-of-Stake systems have a notion of reducing the energy needed by the proof-of-work system. Both PoS and PoW systems are vulnerable to centralization and other attacks. In UniqueID, however, we have new design space for consensus algorithms.
+
+
+These alorithms are based on the one-person-one-account property of the system. Having reliable account on who can enters the system, one can design fair and robust algorithms. Even some naive ideas like Delegated Proof-Of-Stake can change their voting system and become based on real humans, instead of stakeholders. Reputation mining can be designed where everyone has a permanent account. Nothing-at-stake problems can also migitated by assigning reputations, where working on other forks make your reputation near zero. We think that designing efficient, fair and decentralized consensus protocols based on an one-human-one-vote basis is an interesting and independent challenge.
 
 \subsection{Accountable Voting and Survey}
 Voting is a critical part of all democratic systems, also surveys play an important role in media and decision making processes, but there's no solution for running a public and accountable online voting without trusting any third-party to protect it against Sybil attacks or fake identities.
