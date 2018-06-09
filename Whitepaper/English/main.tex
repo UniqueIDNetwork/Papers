@@ -114,16 +114,17 @@ CAPTCHAs \cite{CAPTCHA} are mechanisms for recognizing humans from machines. CAP
 There is a number of verifiers, say 100, in the city. Location and city of every verifier recorded in the blockchain. We assume that user's public key is $pk$.
 
 
- after one user enters the system with his biometric, he should get certificates from a sufficient number of these verifiers(3 is enough here). Assigning verifiers to users done via blockchain with user's location and some common randomness. This randomness can be produced with another smart contract, with methods like randHound \ref{} or ...   This randomness,$ R_i$ combined and hashed with user's public key ($SHA256(R_i || pk$) can determine the assignment. 
+ after one user enters the system with his biometric, he should verify his identity and get certificates from a sufficient number of these verifiers(3 is enough here). Assigning verifiers to users done via blockchain with user's location and some common randomness. This randomness can be produced with another smart contract, with methods like randHound \ref{} or ...   This randomness,$ R_i$ combined and hashed with user's public key ($SHA256(R_i || pk$) can determine the assignment. 
  
  
-The user then goes to the verifier in person and \textit{reproduce}  his biometric in presence of verifier. Reproducing means sampling biometric data with verifier's biometric device, and then ensuring equality of this sample with previous biometrics on blockchain with some local computation. If verifier ensures that two biometrics are same, he $accepts$ user and issue a certificate with his signature on the blockchain. This is one of the most important components of UniqueID because here verifier can make sure that the biometric is real and belongs to the person who claims it. This will prevent fake biometrics attacks and identity thefts from happening.
+The user then goes to the verifier in person and \textit{reproduce}  his biometric in presence of verifier. Reproducing means sampling user's biometric with verifier's biometric device, and then ensuring equality of this sample with previous biometrics on blockchain with some local computation on verifier's device. If the verifier ensures that two biometrics are the same, he $accepts$ user and issues a certificate with his signature on the blockchain. This process is for  preventing fake biometrics attacks and identity thefts from happening, Because verifiers can make sure that the biometric is real and belongs to the person who claims it. 
 
 
 
-After user gaining these certificates, the system automatically accepts him as a valid and unique person. If only one of the verifiers does not issue the certificate, the user can ask for a reassignment. This is possible when one of the verifiers is corrupted or has made some error. In the end, if user verified ... (What is the mechanism for punishing this verifier??)
-\\
-For the correctness of this process, and no one with many attempts cannot break it and assigned to his favorable verifiers we add a barrier in entering the system. There are just three ways you can enter the system:
+After user gaining these certificates, the system automatically accepts him as a valid and unique person. If only one of the verifiers does not issue the certificate, the user can ask for a reassignment. This is possible when one of the verifiers is corrupted or has made some error. There is no incnetive for a verifier for  not accepting a real user, as the user can ask for the reassignment afterwards.
+
+
+For preventing Sybil attacks, and  ensuring that an adversary with many attempts can not break verification process and assigned to his favorable verifiers we add a barrier in entering the system. There are just three ways you can ask for the initial assignment:
 \begin{itemize}
 \item Via $invitation$. Every verified user have two invitations that can give to other public keys and bring them access for submitting their biometric and verification process. because there is a limited number of verified users, there will be always a limited number of verifications (and performing an attack needs large human resources).
 
@@ -219,14 +220,12 @@ In a trusted setup, we can compute $sk,pk,PrivAI$ and $ObfPrivAI$ in one session
 %Is there any ZKP which can proves correctness of ObfPrivAI?%
 
 \subsubsection*{Secure Logins}
-One can use UniqueID blockchain for designing some decentralized application, Specially as the one-person-one-account property is attracting for some purposes, such as social medias or banking. It is plausible that these systems should hold user's data private, and the identity of user's shoud not be revealed. More formally, there should be no relation between user's public key (or biometrics) and his social media account. This can be solved by introducing anynomous tokens, means having special token (one token per person, specified in application's smart contrac) for logging in. Adding ability of sending tokens anynomously between accounts, the user can send his app-token to anynomous account and start with a fresh identity. This ability can be achieved by ring signatures or zero knowlege prrofs, working examples are  Monero, Zcash or Raiden network.
-
-\subsubsection*{Trust Tokens}
+One can use UniqueID blockchain for designing some decentralized application, Specially as the one-person-one-account property is attracting for some purposes, such as social medias or banking. It is plausible that these systems should hold user's data private, and the identity of user's shoud not be revealed. More formally, there should be no relation between user's public key (or biometrics) and his social media account. This can be solved by introducing anynomous tokens, means having special token (one token per person, specified in application's smart contrac) for logging in. Adding ability of sending tokens anynomously between accounts, the user can send his app-token to anynomous account and start with a fresh identity. This ability can be achieved by ring signatures or zero knowlege prrofs, working examples are  Monero, Zcash or Raiden network. There should be also a way for everyone for burning his previous identity (by revealing the relation between his main and application account) and start with a fresh identity in the application. This proccess is crucial for preventing creation of token market.
 
 
 
-
-\section{Challanges }
+\section{Challanges}
+%Zero knowledge for data revealing - TODO %
 
 
 \subsection{Geographical Dispersion}
@@ -303,9 +302,11 @@ Creating reputation systems on top of a decentralized identity system such as Un
 \subsection{General Framework for Organization}
 In an abstract and conceptual level, Bitcoin's idea is to decentralize a specific computational process using redundancy of computation, Ethereum extended this idea and made it possible to decentralize any computational process.\\ UniqueID's idea is to decentralize operation of a specific organization which is responsible for providing universal unique identity, and we claim that by extending same governance scheme and redundancy of operation, one can think of a general framework to decentralize operation of organizations. 
 
+\subsection{Rethinking Governance}
+Recently there were a number of discussions about various models of blockchain governance. These discussions mainly focus on pros and cons of on-chain votings with stake. It seems that these votings can have harmful outcomes, mainly due to the large asymmetry in number of coins each member of crypto community holds. One-person-one-vote system can enable us new ways of thinking about governance problems in blockchain space. As an example, Futarchy, as proposed and combined with blockchain in [], needs such an one-person-one-account system. 
+
 \subsection{Social Media}
 \subsection{Fake News}
-\subsection{Rethinking Governance}
 
 \section{Reviews}
 We categorize previously existing ideas in this area in two different categories, first decentralized identity management solutions which aim to provide a decentralized infrastructure to host centralized issued identities, including DID, Sovrin, and uPort. The second one is decentralized identity issuance solutions which aim to create or define a new kind of identity that is decentralized from its origin, including Democracy Earth and Bitnation, Proof-of-Personhood.
