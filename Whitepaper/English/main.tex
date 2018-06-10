@@ -170,7 +170,7 @@ Our goal is to achieve an issuance scheme which is fair and keeps the value of t
 The figure for comparing network effect and money supply.
 
 \subsection{Decentralized Governance}
-There is no independent entity for decision-making in decentralized systems, so they face governance problems on many levels. Long discussions on  DAO fork and Bitcoin Segwit2x proposal are clear examples of this issue. In UniqueID, There is new concept that should be governed as well : human work. There should be some mechanism for detecting and punishing $corrupted$ verifiers.
+There is no independent entity for decision-making in decentralized systems, so they face governance problems on many levels. Long discussions on  DAO fork and Bitcoin Segwit2x proposal are clear examples of this issue. In UniqueID, There is new concept that should be governed as well: human work. There should be some mechanism for detecting and punishing \textit{corrupted} verifiers.
 
 
 UniqueID is inherently one-person-one-vote, and this gives us new opportunities for shaping our governance model. We introduce some hierarchical representative democratic system, based on three layers of representatives. 
@@ -206,7 +206,7 @@ We can see two directions for solving this attacks. First, Set some sophisticate
 We first design a very secure registration way that there is zero-probability in entering with a fake identity, calling it A-judge. This can be a very hard process, including being verified by all verifiers in a specific city. There can be gathering of verifiers every 6 months in a public place, and handling all A-judges there.
 
 
-Using A-judges, we can design a system for lowering amount of coordination between verifiers for creating fake identities. We give every verifier and every layer-3 representative limited number of \textit{Identity re-checks} per month. They can use these re-checks for calling specific identities (here, biometrics) for     going through A-judge. These called identities should pass A-judge in a specified time, Otherwise, they lose their identity. Also, they have great incentive for going through this judge, because they rewarded by tokens. This way we can find fake-identities and punish bad verifiers.
+Using A-judges, we can design a system for lowering amount of coordination between verifiers for creating fake identities. We give every verifier and every layer-3 representative limited number of \textit{Identity re-checks} per month. They can use these re-checks for calling specific identities (here, biometrics) for going through A-judge. These called identities should pass A-judge in a specified time, Otherwise, they lose their identity. Also, they have great incentive for going through this judge, because they rewarded by tokens. This way we can find fake-identities and punish bad verifiers.
 
 
 Every verifier stakes X tokens and locks them. If the system determines some verifiers as a bad verifier, his stake goes for anyone who called A-judge for his fake identity. So verifiers have the incentive for calling A-judges over fake identities if they know any. This makes coordination very hard: even if you bribe heavily some verifiers, After that, they can call A-judge over that identity. There should be also some random checks for preventing other forms of bad behavior.
@@ -219,7 +219,7 @@ We can see different aspects of data privacy concerns in UniqueID. Below we disc
 In UniqueID we need user's biometric data for the human identification process. Leaking biometrics can lead to the harmful use of them, such as proving procedure in courts or searching for a possessor of a special account by authorities. What we need is a way for preserving the functionality of the system, without exposing biometrics to anyone.
 
 
-More formally, the process of biometrics can be described in terms of user $U_i$ puts his biometrics $B_i$ in a ledger $L$. This ledger then compute the function $AI(U_i,U_j)$ for every $j <= i$, ensuring $U_i$ is a fresh and new biometric. output of the $AI(x,y)$ can be binary, or a number in [0,1] demonstrating similarity between x and y. We want to preserve functionality of $AI$ function, But keeping $U_i$ secret. 
+More formally, the process of biometrics can be described in terms of user $U_i$ puts his biometrics $B_i$ in a ledger $L$. This ledger then compute the function $AI(U_i,U_j)$ for every $j \leq i$, ensuring $U_i$ is a fresh and new biometric. output of the $AI(x,y)$ can be binary, or a number in [0,1] demonstrating similarity between x and y. We want to preserve functionality of $AI$ function, But keeping $U_i$ secret. 
 
 Finding efficient and decentralized solution for this is an interesting challenge. We present a solution here which needs trusted setup. Consider there is an public and private key pair,$pk,sk$, where $pk$ is known to public but nobody knows $sk$. Also define $PrivAI(X,Y)$ as a code that first decrypting $X$ and $Y$ with $sk$, and then compute $AI$ on them. $ObfPrivAI$ is obfuscated version of program $PrivAI$ (Indistinguishable Obfuscation). 
 
@@ -227,7 +227,7 @@ In a trusted setup, we can compute $sk,pk,PrivAI$ and $ObfPrivAI$ in one session
 %Is there any ZKP which can proves correctness of ObfPrivAI?%
 
 \subsubsection*{Secure Logins}
-One can use UniqueID blockchain for designing some decentralized application, Specially as the one-person-one-account property is attracting for some purposes, such as social medias or banking. It is plausible that these systems should hold user's data private, and the identity of user's shoud not be revealed. More formally, there should be no relation between user's public key (or biometrics) and his social media account. This can be solved by introducing anynomous tokens, means having special token (one token per person, specified in application's smart contrac) for logging in. Adding ability of sending tokens anynomously between accounts, the user can send his app-token to anynomous account and start with a fresh identity. This ability can be achieved by ring signatures or zero knowlege prrofs, working examples are  Monero, Zcash or Raiden network. There should be also a way for everyone for burning his previous identity (by revealing the relation between his main and application account) and start with a fresh identity in the application. This proccess is crucial for preventing creation of token market.
+One can use UniqueID blockchain for designing some decentralized application, Specially as the one-person-one-account property is attracting for some purposes, such as social medias or banking. It is plausible that these systems should hold user's data private, and the identity of user's shoud not be revealed. More formally, there should be no relation between user's public key (or biometrics) and his social media account. This can be solved by introducing anynomous tokens, means having special token (one token per person, specified in application's smart contrac) for logging in. Adding ability of sending tokens anynomously between accounts, the user can send his app-token to anynomous account and start with a fresh identity. This ability can be achieved by ring signatures \cite{RingSig} or zero knowlege proofs \cite{ZeroKnowledge}, working examples are  Monero, Zcash or Raiden network. There should be also a way for everyone for burning his previous identity (by revealing the relation between his main and application account) and start with a fresh identity in the application. This proccess is crucial for preventing creation of token market.
 
 
 
@@ -409,6 +409,18 @@ Democracy Earth is going to be a decentralized app mainly concerned with providi
 	J. Teutsch, C. Reitwießner. \emph{A scalable verification solution for blockchains.}
 	\hskip 1em plus 0.5em minus 0.4em\relax
 	\url{https://people.cs.uchicago.edu/~teutsch/papers/truebit.pdf} 2017.
+
+	\bibitem{RingSig}
+	R. L. Rivest, A. Shamir, Y. Tauman. \emph{How to Leak a Secret.}
+	\hskip 1em plus 0.5em minus 0.4em\relax
+	International Conference on the Theory and Application of Cryptology and Information Security 2001.
+
+	\bibitem{ZeroKnowledge}
+	S. Goldwasser, S. Micali, C. Rackoff. \emph{The knowledge complexity of interactive proof-systems.}
+	\hskip 1em plus 0.5em minus 0.4em\relax
+	Symposium on Theory of Computing 1985.
+
+
 
 	\bibitem{Sybil}
 	J. Douceur. \emph{The Sybil Attack.}
