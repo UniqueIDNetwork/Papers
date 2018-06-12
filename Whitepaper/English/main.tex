@@ -25,15 +25,20 @@
 \end{abstract}
 \section{Introduction}
 Identity verification has always been an important problem in online systems. While identity is a key for solving a wide range of challenges, including Sybil attacks and accountable votings, there is no universal system for holding human identities. Identity databases usually created and managed by governments or financial institutions privately. Social media and messengers solved the problem partially by relying on other systems such as E-mail, mobile phone number, credit card information, and other reputable social media accounts. These methods are not suitable for highly critical applications(e.g. voting) and prone to violating users privacy. Currently there is not any system for assigning every online human exactly one account, which can be used for logging into other systems as well.
-\\
+
+
 Centralized models for identity verification are all prone to misuses, fake identities, and political conflicts. Identity is a political concept, and nation-states will come against every system that aims to collect their citizen identities. Moreover, we need to make sure that such an authority does not create fake identities, or excluding a specific group of people from the system in favor of itself.
-\\
+
+
 Blockchain brings us a decentralized way for recording specific data in an immutable ledger -which the \textit{correctness} of data also guaranteed by computer code, based on prespecified rules. Decentralized money is a direct application of such a ledger, a monetary system can be reduced to statements in form of \textit{``X has c coins"} and \textit{``X gives Y c coins"}. Bitcoin \cite{bitcoin} just records these statements -\textit{transactions}- in its Blockchain. Nature of identity verification is very close to this \textit{record} logic because identity is simply some information about you, and some claims about correctness of those information by other people. 
-\\
+
+
 UniqueID aims to bring online and decentralized one-person-one-account system based on biometric data for recognizing people, human verifiers for identity verification processes, and blockchain for recording data. Similar Bitcoin which incentives people who contribute their computational power to network with new Bitcoins, UniqueID uses a token system and a novel governance mechanism to incentives human verifiers and distributing operations while preventing the creation of a monopoly of power and bad behaviors.
-\\
+
+
 Recently there have been efforts in order to create decentralized identity verifications with different approaches. \cite{proofofpersonhood, uport, sovrin} are examples of such systems. To the best of our knowledge, among all the systems which provide a unique account for every person, none of them are permissionless, fully decentralized, and permanent at the same time.
-\\
+
+
 Identity is also an important problem, not just in the digital world. Roots of many nation-wide issues are identity-related issues. Over 1 billion people do not have any identity document, and can not participate in financial and legal transactions \cite{worldbankid}. Old institutions for democracy are changing slowly and are not efficient, because of bureaucratic and paper-based identities leads to costly votings \cite{democracyearth}. Universal basic income, as a novel idea, can be executed only in the existence of a worldwide identity system \cite{basicincome}.
 
 
@@ -86,32 +91,33 @@ Privacy and data protection are of the most important challenges in every blockc
 
 
 \section{UniqueID Design}
-In this section, we will explain how UniqueID works and solves the decentralized proof-of-unique-human problem. Our system is based on some concepts and components that we will cover them in this chapter in detail. Before that, we provide an overall flow of the system.
+In this section, we come with a detailed explanation of how UniqueID works and solves the decentralized proof-of-unique-human problem. First, we provide an overall flow of the system, and then we cover the concepts and components which our system consists of.
 
 \subsection{Overal Flow}
 
-Uniquid aims to provide a permanent and reliable identity for everyone without violating his privacy.  Users should submit their biometric data on blockchain and then prove that they have submitted valid data. This proofs are “social” and based on trust; It means you must get some “biometric reproducing certificate” from current accepted users or validators. These validators ask you to “reproduce” your claimed biometric in order to preventing fake biometrics attacks.
+Here we focus on a flow of one user's identity process for understanding how UniqueID works.  Users should submit their biometric data on blockchain and then prove the validity of the claimed biometric. This proofs are “social” and based on trust; It means you must get some “biometric reproducing certificate” from some previously accepted users or verifiers. These verifiers ask you to “reproduce” your claimed biometric in presence of themselves. After collection enough trust, the user recognized as a valid and unique one. At a technichal level, Blockchain brings us the storage and computation we need for these tasks.
 
 
-There are some questions arising here, such as how users get assigned to verifiers, what is the incentives of verifiers for checking others claims and where is the starting point of the system. We discuss these questions and concepts in depth in following subsections.
+There are some questions arising here, such as how users get assigned to verifiers, what is the incentives of verifiers for checking others claims and where is the starting point of the system. We discuss these questions and provide solutions for them in following subsections.
+
 \subsection{Biometrics}
-Biometric data is how we identify and know ``humans". We need almost permanent, unique and well-studied biometrics for our system that storing them on blockchain do not create any privacy concerns. 
-Biometric data will be used to check uniqueness of individuals and prevent the creation of fake identities and Sybil attack. A wide range of physical and behavioral biometric indicators have been developed during last decades in the literature of biometrics-based identification, including iris, face, finger vein, hand geometry, typing, etc \cite{intro-biometic}. Advancements in machine learning and image processing offer many well-studied and tested methods of biometrics-based identification with equal error rate (EER) of at most $0.01$, let alone methods with much higher accuracy. Roughly speaking, compounding at least 4 of uncorrelated different biometrics as a biometric indicator, our system is ready to serve and identify 100 million people.\\
+Biometric data is how UniqueID identify and recognize ``humans". We need almost permanent, unique and well-studied biometrics for our system that have an acceptable accuracy level, and also storing them on blockchain do not create any privacy concerns.
+Biometric data will be used to check the uniqueness of individuals and prevent the creation of fake identities and Sybil attack. A wide range of physical and behavioral biometric indicators have been developed during last decades in the literature of biometrics-based identification, including iris, face, finger vein, hand geometry, typing, etc \cite{intro-biometic}. Advancements in machine learning and image processing offer many well-studied and tested methods of biometric-based identification with equal error rate (EER) of at most $0.01$, let alone methods with much higher accuracy. Roughly speaking, compounding at least 4 of uncorrelated different biometrics as a biometric indicator, our system is ready to serve and identify 100 million people.
 
 \subsection{Trustless Setup}
-In a system where current users should approve new ones, we should have a mechanism for approving very first users. One method is to begin with a sufficient number of trusted persons and include their biometrics and keys as verified users. The challenge is how to select these persons without any need for a central third party? Below we explain three solutions for this issue.
+In a system where current users should approve new ones, one chould come up with a mechanism for approving very first users. One method is to begin with a sufficient number of trusted persons and introduce their identities (biometrics and keys) as verified users. The challenge is how to select these persons without any need for a central third party? Below we explain three solutions for this issue.
 
 \subsubsection*{Transparent Peer-to-Peer Setup} 
-Transparency can be the key to solving trustless setup. There is a community of enthusiastic people around the project that can build healthy setup. Providing relevant information in a public channel, the community invited for joining a public party in special place and time. Everyone who aims to join, has to send her proposal including name, biometrics and some identity document -just for transparency purposes. In the party, they start to verify each other in a peer-to-peer manner. Because the party is public, everyone can join and there would no monopoly or closed group of individuals at the beginning. Also, it's near impossible to fake an identity because it can be detected and claimed by just one person in a party. There can be a live cast of all of the steps of a party in public channel for forwarding transparency.
+Transparency can be the key to solving the trustless setup problem. Usually there is a community of enthusiastic people around these kind of projects. By providing relevant information in a public channel, the community invited for joining a public party in special place and time. Everyone who aims to join, has to send her proposal including name, biometrics and some identity document -just for transparency purposes. In the party, they start to verify each other in a peer-to-peer manner. Because the party is public, everyone can join and there would no monopoly or closed group of individuals at the beginning. Also, it's near impossible to fake an identity because it can be detected and claimed by just one person in the party. There can be a live cast of all of the steps of the party and  all of the relevant information in a public channel for forwarding transparency.
 
 \subsubsection*{Trusted Famous People}
-There are some people with a public profile who have no incentive for sabotaging the system, e.g. university professors, known artists, and athletes or popular cafes, usually because of their high reputation among other individuals. Collecting some of these people who want to join in early verifying, and showing all the information and profiles can be a starting point for the system.
+There are some people with a public profile who have no incentive for sabotaging the system, e.g. university professors, known artists, and athletes or popular cafes. This is usually because of their high reputation among other individuals. Collecting some of these people who want to join in early verifying, and broadcasting all the information and profiles can be a starting point for the system.
 
 \subsubsection*{Decentralized CAPTCHA Party}
 CAPTCHAs \cite{CAPTCHA} are mechanisms for recognizing humans from machines. CAPTCHAs are AI-hard and it takes reasonable time for humans to solve them. Consider we construct some hard CAPTCHA that takes about 2 minutes for an average person to solve. We then organize a CAPTCHA party: in a specific time around the world, based on some common randomness (e.g. blockhash) a predefined smart contract starts assigning CAPTCHAs to participants. 
 
 \subsection{Verification Mechanism}
-There is a number of verifiers, say 100, in the city. Location and city of every verifier recorded in the blockchain. We assume that user's public key is $pk$.
+We assume that there is a number of verifiers, say 100, in the city. Location and city of every verifier recorded in the blockchain. Call the user's public key $pk$.
 
 
  after one user enters the system with his biometric, he should verify his identity and get certificates from a sufficient number of these verifiers(3 is enough here). Assigning verifiers to users done via blockchain with user's location and some common randomness. This randomness can be produced with another smart contract, with methods like randHound \ref{} or ...   This randomness,$ R_i$ combined and hashed with user's public key ($SHA256(R_i || pk$) can determine the assignment. 
@@ -121,7 +127,7 @@ The user then goes to the verifier in person and \textit{reproduce}  his biometr
 
 
 
-After user gaining these certificates, the system automatically accepts him as a valid and unique person. If only one of the verifiers does not issue the certificate, the user can ask for a reassignment. This is possible when one of the verifiers is corrupted or has made some error. There is no incnetive for a verifier for  not accepting a real user, as the user can ask for the reassignment afterwards.
+After user gaining these certificates, the system automatically accepts him as a valid and unique person. If only one of the verifiers does not issue the certificate, the user can ask for a reassignment. This is possible when one of the verifiers is corrupted or has made some error. There is no incnetive for a verifier for  not accepting a real user, as the user can ask for a reassignment afterwards.
 
 
 For preventing Sybil attacks, and  ensuring that an adversary with many attempts can not break verification process and assigned to his favorable verifiers we add a barrier in entering the system. There are just three ways you can ask for the initial assignment:
