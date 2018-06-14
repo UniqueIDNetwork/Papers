@@ -122,34 +122,33 @@ CAPTCHAs \cite{CAPTCHA} are mechanisms for recognizing humans from machines. CAP
 We assume that there is a number of verifiers, say 100, in the city. Location and city of every verifier recorded in the blockchain. Call the user's public key $pk$.
 
 
- after one user enters the system with his biometric, he should verify his identity and get certificates from a sufficient number of these verifiers(3 is enough here). Assigning verifiers to users done via blockchain with user's location and some common randomness. This randomness can be produced with another smart contract, with methods like randHound \ref{} or ...   This randomness,$ R_i$ combined and hashed with user's public key ($SHA256(R_i || pk$) can determine the assignment. 
+ after one user enters the system with his biometric, he should verify his identity and get certificates from a sufficient number of these verifiers(3 can be enough here). Assigning verifiers to users would be done via blockchain regarding user's location and some common randomness. The randomness can be produced by another smart contract, with methods like randHound \ref{} or ...   This randomness,$ R_i$ combined and hashed with user's public key ($SHA256(R_i || pk$) can determine the assignment. 
  
  
-The user then goes to the verifier in person and \textit{reproduce}  his biometric in presence of verifier. Reproducing means sampling user's biometric with verifier's biometric device, and then ensuring equality of this sample with previous biometrics on blockchain with some local computation on verifier's device. If the verifier ensures that two biometrics are the same, he $accepts$ user and issues a certificate with his signature on the blockchain. This process is for  preventing fake biometrics attacks and identity thefts from happening, Because verifiers can make sure that the biometric is real and belongs to the person who claims it. 
+The user then goes to all of the assigned verifiers in person and \textit{reproduce}  his biometric in the presence of verifier. Reproducing means sampling user's biometric with verifier's biometric device, and then ensuring equality of this sample with previous biometrics on blockchain with some local computation on verifier's device. If the verifier ensures that two biometrics are the same, he $accepts$ the user and issues a certificate with his signature on the blockchain. This process is for  preventing fake biometrics attacks and identity thefts from happening, Because verifiers can make sure that the biometric is real and belongs to the person who claims it. 
 
 
 
-After user gaining these certificates, the system automatically accepts him as a valid and unique person. If only one of the verifiers does not issue the certificate, the user can ask for a reassignment. This is possible when one of the verifiers is corrupted or has made some error. There is no incnetive for a verifier for  not accepting a real user, as the user can ask for a reassignment afterwards.
+After user gaining these certificates, the system automatically accepts him as a valid and unique person. If only one of the verifiers does not issue the certificate, the user can ask for a reassignment. This is possible when one of the verifiers is corrupted or has made some error. There is no incnetive for a verifier in rejecting a real user, as the user can ask for a reassignment afterwards.
 
 
 For preventing Sybil attacks, and  ensuring that an adversary with many attempts can not break verification process and assigned to his favorable verifiers we add a barrier in entering the system. There are just three ways you can ask for the initial assignment:
 \begin{itemize}
-\item Via $invitation$. Every verified user have two invitations that can give to other public keys and bring them access for submitting their biometric and verification process. because there is a limited number of verified users, there will be always a limited number of verifications (and performing an attack needs large human resources).
+\item Via $invitation$. Every verified user has two invitations that can give them to other public keys so they can submit their biometric and start the verification process. because there is a limited number of verified users, there will be always a limited number of verifications (and therefore performing an effective attack would need large human resources).
 
-\item Via $Stake$. The user can put some specified amount of money at stake. If he verified by the system, this stake returned to him, if not, he loses it. The amount of stake has direct relation with all unverified stakes in that city, more unverified stake, more stake a user should put.
+\item Via $Stake$. The user can put some specified amount of money at stake for starting the verification process. At the end if he verified by the system, the system automatically will return his stake, otherwise his stake will be locked forever. The amount of stake should be in a direct relation with all unverified stakes in the corresponding city, means the more unverified users, the more stake a user should put.
 
-\item Via $Verifiers$. Every verifier -subject to his reputation and trust- can bring a specified number  
+\item Via $Verifiers$. Every verifier have an authority of starting the verification process for specified number -according to his reputation and trust- of newcoming users.
 \end{itemize}
-RANDOMNESS TOKENS disributed , PoS, 
+
+Also the process of assigning the verifiers should be done respectively, means the user just know who is the \textit{next} verifier. If the user completed and verified with the current verifier, then the next one will be assigned by the system. This should restrict power of an adversary in rejection of an unwanted assignment.
 
 \subsection{Trust Delegation}
-Trust is a fundamental key to bringing healthy behavior in our system. Every valid person has one ``trust" token and can delegate it to everyone. With this non-tradable token, one can give his ability to verify to someone else, because he can not actively verify new users. Thus the verifier with a large number of trusts have more verifying power, leading to slightly more tokens he gives for every new user.
+Trust is the fundamental key for bringing healthy behavior in our system. Every unique person has one ``trust" token which can delegate it to everyone. With this non-tradable token, one can delegate his  verifying authority to someone else, because he can not actively verify new users. Thus the verifier which possess a greater number of trust tokens have more verifying power, and more the system can trust their acceptance/rejection.
 
 
-For more resilience to attacks, we can give verification power to those with more than $x$ trust tokens. this parameter can set based on city populations and maturity of the system. This leads to collecting trust tokens by verifiers, but how they can do this? Transparency is the key, Imagine verifier who brings a live cast of his place on a youtube chaوnnel, or providing access to his office for everyone (doors are open!). By providing more transparency, more people can trust you.
-
-
-Also, every user must have incentives for delegating her trust and delegate it to a correct person. Restricting some important features of the system (e.g. Universal Basic Income) to those who delegated their trust is one solution. Also for a corrupted verifier (there is some mechanism for finding corrupt behavior), all his trust get suspended for some period of time.
+The system will then give verification power to those which possess at least $x$ trust tokens, in order to making verification process more reliable. this parameter must set based on the city population and maturity of the system. Verifiers can collect trust from users by Transparency. For example,a verifier can provide access to a live cast of the verification processes on a youtube channel, or permits everyone coming to his office (doors are open!). By providing more transparency, more people can trust him.\\
+Also, every user must have incentives for delegating her trust to a trustworthy person. Restricting some important features of the system (e.g. Universal Basic Income) from those who did not delegate their trust is one solution. Also if a corrupted verifier identified (there will be some mechanisms for identifying corrupted behaviors), all his trust will be suspended for some period of time.
 
 
 
