@@ -122,7 +122,8 @@ CAPTCHAs \cite{CAPTCHA} are mechanisms for recognizing humans from machines. CAP
 We assume that there is a number of verifiers, say 100, in the city. Location and city of every verifier recorded in the blockchain. Call the user's public key $pk$.
 
 
- after one user enters the system with his biometric, he should verify his identity and get certificates from a sufficient number of these verifiers(3 can be enough here). Assigning verifiers to users would be done via blockchain regarding user's location and some common randomness. The randomness can be produced by another smart contract, with methods like randHound \ref{} or ...   This randomness,$ R_i$ combined and hashed with user's public key ($SHA256(R_i || pk$) can determine the assignment. 
+ after one user enters the system with his biometric, he should verify his identity and get certificates from a sufficient number of these verifiers(3 can be enough here). Assigning verifiers to users would be done via blockchain regarding user's location and some common randomness. The randomness can be produced by another smart contract, with methods like  \cite{rhound}. %Add something %
+  This randomness,$ R_i$ combined and hashed with user's public key ($SHA256(R_i || pk$) can determine the assignment. 
  
  
 The user then goes to all of the assigned verifiers in person and \textit{reproduce}  his biometric in the presence of verifier. Reproducing means sampling user's biometric with verifier's biometric device, and then ensuring equality of this sample with previous biometrics on blockchain with some local computation on verifier's device. If the verifier ensures that two biometrics are the same, he $accepts$ the user and issues a certificate with his signature on the blockchain. This process is for preventing fake biometrics attacks and identity thefts from happening because verifiers can make sure that the biometric is real and belongs to the person who claims it. 
@@ -169,7 +170,7 @@ First, we need a token for creating incentive mechanisms. every decentralized pl
 The most obvious use of such a token is for payments and store of value. Incentives bring new users to the system, and new users bring more acceptability and a wider market, projected in token price, bringing new incentives for further users. This positive network-effect, combined with a mechanism for more incentivizing first movers(but not make them giant Whales!) can bring non-zero value for the token. Also, this system can host many other applications which need a unique and permanent identity, such as digital banking, property and real estate on the blockchain, reputation systems etc. These systems can provide their services on the UniquID blockchain, using a native token or at least paying fees for their smart contracts.
 
 \subsubsection{Monetary system}
-Our goal is to achieve an issuance scheme which is fair and keeps the value of the token. Our proposal is selling fix amount of tokens (say, $a*x$) in pre-sale (with an Initial Coin Offering or similar methods) and then issuing $x$ tokens for every new user. This tokens distributed between verifiers of that user and herself. So after $a$ new users, tokens in the hands of users is equal to ICO tokens. This can provide $fairness$ for the system because initial holders are not giants anymore, and after the system became popular(=more users) their influence gets reduced. Also, initial investors have incentives for investment because they can buy tokens cheap early. It will be promised to them that their tokens have an influence equal to $a$ users, and they can guess what they earn by the estimated value of an identity system with $a$ users. This issuance scheme is linear in the number of users, However, the utility of users(network effect) is quadratic, so we can predict a slight rise in price over time. At least, It's not a super-inflationary system: More user's, more utility, more demand and more supply responding to them. Choosing $a$ parameter and schemes for incentivizing early users (e.g. changing reward over time) is for further research.
+Our goal is to achieve an issuance scheme which is fair and keeps the value of the token. Our proposal is selling fix amount of tokens (say, $a*x$) in pre-sale (with an Initial Coin Offering or similar methods) and then issuing $x$ tokens for every new user. This tokens distributed between verifiers of that user and herself. So after $a$ new users, tokens in the hands of users is equal to ICO tokens. This can provide $fairness$ for the system because initial holders are not giants anymore, and after the system became popular(=more users) their influence gets reduced. Also, initial investors have incentives for investment because they can buy cheap tokens in early stages. It will be promised to them that their tokens have an influence equal to $a$ users, and they can guess what they earn by the estimated value of an identity system with $a$ users. This issuance scheme is linear in the number of users, However, the utility of users(network effect) is quadratic, so we can predict a slight rise in price over time. At least, It's not a super-inflationary system: More user's, more utility, more demand and more supply responding to them. Choosing $a$ parameter and schemes for incentivizing early users (e.g. changing reward over time) is for further research.
 
 
 
@@ -183,7 +184,9 @@ There is no independent entity for decision-making in decentralized systems, so 
 UniqueID is inherently one-person-one-vote, and this gives us new opportunities for shaping our governance model. We introduce some hierarchical representative democratic system, based on three layers of representatives. 
 
 
-First, small communities of $50-100$ persons choose one person from themselves. They put their trust and vote on him, and can also track his activity and ask him about that. Because they are a small group of people, it is expected that they know each other well and can make necessary communications between themselves and choose a qualified representative. these are layer-1 representatives, and they should know each other and follow system changes and discussions, and also choose layer-2 persons. Every $30-40$ of these layer-1 representatives should gather and choose one representative. And the same for layer-3: every $20-30$ layer-2 people can choose one layer-3 representative from them. See figure X for visual ...
+First, small communities of $50-100$ persons choose one person from themselves. They put their trust and vote on him, and can also track his activity and ask him about that. Because they are a small group of people, it is expected that they know each other well and can make necessary communications between themselves and choose a qualified representative. these are layer-1 representatives, and they should know each other and follow system changes and discussions, and also choose layer-2 persons. Every $30-40$ of these layer-1 representatives should gather and choose one representative. And the same for layer-3: every $20-30$ layer-2 people can choose one layer-3 representative from them. 
+
+%See figure X for visual ...%
 
 
 This system should decide for critical decisions such as choosing parameters and consensus rules. Majority consensus seems a very good method for making decisions in a system with verified identities but also can cause some problems. Not \textit{every} decision can be made by a majority (51 percent) of votes. Changing some critical parameter of a system (number of verifiers needed for verifying one person) is a clear example of this. So we need to group decisions based on their importance and put some thresholds on the percentage of votes needed for making decisions in every group (super-majority rules).
@@ -195,7 +198,7 @@ Because of low participation, lack of incentive for voting and lack of knowledge
 In this process, people can track their trustee activities and votes, and ask for explanation and reasons. Everyone can change his trustee every time, and delegate his trust to another one. However, representatives should not lose their position with leaving one of their trusts, so there can be a threshold(e.g. 20 percent) that when they leave, the person becomes invalid. 
 
 
-preventing ads and ... in votes\\
+%preventing ads and ... in votes\\
 
 % bribing is much harder, secure re-vote
 \subsection{Implementation}
@@ -442,6 +445,11 @@ Democracy Earth is going to be a decentralized app mainly concerned with providi
     \hskip 1em plus 0.5em minus 0.4em\relax
     2005.
     
+    \bibitem{rhound}
+    E. Syta, P. Jovanovic, E. Kogias, N. Gailly, L. Gasser, I. Khoffi, M. Fischer, B. Ford.
+    \emph{Scalable Bias-Resistant Distributed Randomness.}
+    \hskip 1em plus 0.5em minus 0.4em\relax
+	IEEE Symposium on Security and Privacy 2017.
     
     
 \end{thebibliography}
